@@ -13,16 +13,16 @@ import java.util.Enumeration;
  * Created by zhouyou on 2016/6/23.
  * Class desc: net utils class
  */
-public class NetUtils {
+public class NetWorkUtils {
 
-    private NetUtils() {
+    private NetWorkUtils() {
         throw new UnsupportedOperationException("cannot be instantiated");
     }
 
     /**
      * 检测网络是否可用
      */
-    public static boolean networkIsAvailable(Context context) {
+    public static boolean isNetConnected(Context context) {
         try {
             ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
             if (cm != null) {

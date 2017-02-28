@@ -8,6 +8,6 @@ package com.zyl.hospital.registration.http.api;
 public interface ApiService {
 
 //    @GET(ApiConstant.TEST_URL)
-//    Call<ResponseResult<ListBean<TestBean>>> testData(@QueryMap() Map<String, String> params);
+//    Call<ResultEntity<ListBean<TestBean>>> testData(@QueryMap() Map<String, String> params);
 
 }

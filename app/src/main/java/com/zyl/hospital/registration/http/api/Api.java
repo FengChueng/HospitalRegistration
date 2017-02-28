@@ -5,7 +5,7 @@ import com.zyl.hospital.registration.App;
 import com.zyl.hospital.registration.constants.ApiConstant;
 import com.zyl.hospital.registration.constants.AppConfig;
 import com.zyl.hospital.registration.http.gson.CustomGsonConverterFactory;
-import com.zyl.hospital.registration.utils.NetUtils;
+import com.zyl.hospital.registration.utils.NetWorkUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -37,8 +37,8 @@ public class Api {
      * 获取 Api 实例（单例，使用默认服务器地址）
      * @return Api 对象
      */
-    public static Api getIns(){
-        return getIns(null);
+    public static Api getInstance(){
+        return getInstance(null);
     }
 
     /**
@@ -46,7 +46,7 @@ public class Api {
      * @param baseUrl 服务器地址
      * @return
      */
-    public static Api getIns(String baseUrl){
+    public static Api getInstance(String baseUrl){
         if (mInstance == null) {
             synchronized (Api.class){
                 if(mInstance == null){
@@ -134,13 +134,13 @@ public class Api {
         @Override
         public Response intercept(Interceptor.Chain chain) throws IOException {
             Request request = chain.request();
-            if (!NetUtils.networkIsAvailable(App.getInstance())) {
+            if (!NetWorkUtils.networkIsAvailable(App.getInstance())) {
                 request = request.newBuilder()
                         .cacheControl(CacheControl.FORCE_CACHE)
                         .build();
             }
             Response response = chain.proceed(request);
-            if (NetUtils.networkIsAvailable(App.getInstance())) {
+            if (NetWorkUtils.networkIsAvailable(App.getInstance())) {
                 int maxAge = 0;
                 // 有网络时 设置缓存超时时间0个小时
                 response.newBuilder()
