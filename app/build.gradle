@@ -10,6 +10,9 @@ android {
         targetSdkVersion Integer.parseInt(project.TARGET_SDK_VERSION)
         versionCode 1
         versionName "1.0"
+//        jackOptions {
+//            enabled true
+//        }
     }
     buildTypes {
         release {
@@ -20,6 +23,10 @@ android {
             buildConfigField "boolean", "LOG_DEBUG", "true"
         }
     }
+//    compileOptions {
+//        sourceCompatibility JavaVersion.VERSION_1_8
+//        targetCompatibility JavaVersion.VERSION_1_8
+//    }
 }
 
 ext{
@@ -67,6 +74,11 @@ dependencies {
 
     compile 'com.romainpiel.shimmer:library:1.4.0@aar'
 
+    //aspectjrt aop
+    compile 'org.aspectj:aspectjrt:1.8.9'
 
+
+    compile project(':annotation')
 
 }
+apply plugin: com.app.plugin.AspectjPlugin

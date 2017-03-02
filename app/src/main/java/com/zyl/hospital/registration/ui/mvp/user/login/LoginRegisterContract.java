@@ -18,18 +18,25 @@ import rx.Observable;
 /**
  * 契约类
  */
-public interface LoginContract {
+public interface LoginRegisterContract {
     abstract class LoginPresenter extends BasePresenter {
         abstract void login(String mobile,String password);
+        abstract void register(String mobile, String password);
     }
 
-    interface LoginView extends BaseView {
+    interface LoginRegisterView extends BaseView {
         void loginSuccess(ResultEntity<UserEntity> userEntity);
         void loginError();
+
+        void registerSuccess(ResultEntity<UserEntity> userEntity);
+        void registerError();
     }
 
-    interface LoginModel extends BaseModel {
+    interface LoginRegisterModel extends BaseModel {
         @GET("")
         Observable<ResultEntity<UserEntity>> login(@Query("mobile") String mobile, @Query("password") String password);
+
+        @GET("")
+        Observable<ResultEntity<UserEntity>> register(@Query("mobile") String mobile, @Query("password") String password);
     }
 }

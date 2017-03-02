@@ -10,7 +10,11 @@
     tools:context="com.zyl.hospital.registration.MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:text="3"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:textSize="10sp"
+        />
 </RelativeLayout>

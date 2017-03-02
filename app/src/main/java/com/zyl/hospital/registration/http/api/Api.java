@@ -134,13 +134,13 @@ public class Api {
         @Override
         public Response intercept(Interceptor.Chain chain) throws IOException {
             Request request = chain.request();
-            if (!NetWorkUtils.networkIsAvailable(App.getInstance())) {
+            if (!NetWorkUtils.isNetConnected(App.getInstance())) {
                 request = request.newBuilder()
                         .cacheControl(CacheControl.FORCE_CACHE)
                         .build();
             }
             Response response = chain.proceed(request);
-            if (NetWorkUtils.networkIsAvailable(App.getInstance())) {
+            if (NetWorkUtils.isNetConnected(App.getInstance())) {
                 int maxAge = 0;
                 // 有网络时 设置缓存超时时间0个小时
                 response.newBuilder()
