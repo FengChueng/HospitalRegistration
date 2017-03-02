@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 
 import com.zyl.hospital.registration.BuildConfig;
 import com.zyl.hospital.registration.R;
-import com.zyl.hospital.registration.widget.StatusLayout;
 
 
 /**
@@ -97,7 +96,6 @@ public class SlideBackActivity extends ActivityInterfaceImpl implements SlideFra
             doRealFinishForSlide();
         }
     };
-    private StatusLayout mStatusLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,7 +129,7 @@ public class SlideBackActivity extends ActivityInterfaceImpl implements SlideFra
         mSlideFrameLayout.addView(view, params);
 
         // 初始化
-        mSlideFrameLayout.setShadowResource(R.mipmap.btn_title_back);
+        mSlideFrameLayout.setShadowResource(R.drawable.sliding_back_shadow);
         mSlideFrameLayout.setSlideable(mSlideable);
         mSlideFrameLayout.setSlidingListener(this);
 

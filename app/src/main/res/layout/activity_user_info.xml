@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_splash"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.SplashActivity">
-    <com.zyl.hospital.registration.widget.launcher.LauncherView
-        android:id="@+id/launcher_view"
+    tools:context="com.zyl.hospital.registration.ui.mvp.user.userinfo.UserInfoActivity">
+    <Button
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </com.zyl.hospital.registration.widget.launcher.LauncherView>
-
+        android:layout_height="wrap_content"
+        android:text="back previous activity"
+        android:onClick="back"
+        />
 </RelativeLayout>

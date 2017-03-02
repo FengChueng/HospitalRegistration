@@ -7,12 +7,17 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 
-import com.zhy.autolayout.AutoLayoutActivity;
 import com.zyl.hospital.registration.R;
+import com.zyl.hospital.registration.widget.slideback.SlideBackActivity;
 
 import butterknife.ButterKnife;
 
@@ -24,21 +29,85 @@ import butterknife.ButterKnife;
  * 支持自动适配
  * SlideBackActivity extends AutoLayoutActivity
  */
-public abstract class BaseActivity extends AutoLayoutActivity {
+public abstract class BaseActivity extends SlideBackActivity {
     /* 日志标志 */
     protected final String TAG = this.getClass().getSimpleName();
+    //private StatusLayout mStatusLayout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "BaseActivity-->onCreate()");
+        //由前一个activity传递的值
         Bundle bundle = getIntent().getExtras();
         initParams(bundle);
-        setContentView(getContentViewID());
-        initView(savedInstanceState);
+
+        // 设置布局
+        setContentView(getStatusLayoutView());
         ButterKnife.bind(this);
+        initView(savedInstanceState);
+        restoreInstanceState(savedInstanceState);
+        setSlideable(true);
+        setPreviousActivitySlideFollow(true);
 
     }
+
+    /**
+     * 获取多状态布局 View
+     */
+    protected View getStatusLayoutView() {
+        View contentView = null;
+//        mStatusLayout = (StatusLayout) LayoutInflater.from(this).inflate(R.layout.layout_status_view, null);
+        if (getLayoutID() != 0) {
+            contentView = LayoutInflater.from(this).inflate(getLayoutID(), null);
+            ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT
+                    , ViewGroup.LayoutParams.MATCH_PARENT);
+//            mStatusLayout.addView(contentView, params);
+            contentView.setLayoutParams(params);
+        }
+        return contentView;
+    }
+
+
+    /**
+     * 恢复之前状态(onCreate()方法中恢复)
+     * @param savedInstanceState
+     */
+    protected void restoreInstanceState(Bundle savedInstanceState){
+        // TODO: if(savedInstanceState!=null){
+        // TODO:    savedInstanceState.getInt("STORE_STATE",mCurrentState);}
+    }
+
+    /**
+     * 恢复之前状态(onRestoreInstanceState中恢复)
+     * @param savedInstanceState
+     */
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        //// TODO: savedInstanceState.getInt("STORE_STATE",mCurrentState);
+    }
+
+    /**
+     * 状态保存
+     * @param outState
+     */
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        saveInstanceState(outState);
+        super.onSaveInstanceState(outState);
+    }
+
+
+    /**
+     * 保存用户当前状态
+     *
+     * @param outState
+     */
+    protected void saveInstanceState(Bundle outState){
+        // TODO: outState.putInt(STORE_STATE, mCurrentState);
+    }
+
 
     /**
      * 初始化参数
@@ -48,7 +117,7 @@ public abstract class BaseActivity extends AutoLayoutActivity {
     protected abstract void initParams(Bundle params);
 
     /**
-     * 初始化控件,处理状态保存
+     * 初始化控件
      *
      * @param savedInstanceState
      */
@@ -60,7 +129,7 @@ public abstract class BaseActivity extends AutoLayoutActivity {
      * @return
      */
     @LayoutRes
-    protected abstract int getContentViewID();
+    protected abstract int getLayoutID();
 
 
     /**
@@ -126,5 +195,17 @@ public abstract class BaseActivity extends AutoLayoutActivity {
                 return super.onOptionsItemSelected(item);
         }
         return true;
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if(null != this.getCurrentFocus()){
+            /**
+             * 点击空白位置 隐藏软键盘
+             */
+            InputMethodManager mInputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            return mInputMethodManager.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(), 0);
+        }
+        return super.onTouchEvent(event);
     }
 }

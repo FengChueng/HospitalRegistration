@@ -3,7 +3,6 @@ package com.zyl.hospital.registration.ui.mvp.user.login;
 
 import com.zyl.hospital.registration.bean.ResultEntity;
 import com.zyl.hospital.registration.bean.UserEntity;
-import com.zyl.hospital.registration.http.api.Api;
 
 import retrofit2.http.Query;
 import rx.Observable;
@@ -13,10 +12,11 @@ import rx.Observable;
  */
 
 public class LoginRegisterRegisterModelImpl implements LoginRegisterContract.LoginRegisterModel {
-    LoginRegisterContract.LoginRegisterModel service = Api.getInstance().createService(LoginRegisterContract.LoginRegisterModel.class);
+    //LoginRegisterContract.LoginRegisterModel service = Api.getInstance().createService(LoginRegisterContract.LoginRegisterModel.class);
     @Override
     public Observable<ResultEntity<UserEntity>> login(@Query("mobile") String mobile, @Query("password") String password) {
-        return service.login(mobile,password);
+        // return service.login(mobile,password);
+        return null;
     }
 
     @Override

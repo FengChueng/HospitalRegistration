@@ -1,7 +1,7 @@
 package com.zyl.hospital.registration.base;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
+import android.support.annotation.Nullable;
 
 /**
  * Created by Administrator on 2017/2/26.
@@ -9,10 +9,11 @@ import android.os.PersistableBundle;
 
 public abstract class MvpBaseActivity<T extends BasePresenter> extends BaseActivity{
     protected T mPresenter;
+
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         mPresenter = createPresenter();
-        super.onCreate(savedInstanceState, persistentState);
+        super.onCreate(savedInstanceState);
     }
 
     /**

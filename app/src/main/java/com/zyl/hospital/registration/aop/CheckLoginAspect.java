@@ -1,11 +1,12 @@
 package com.zyl.hospital.registration.aop;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.view.View;
 
 import com.zyl.hospital.registration.App;
-import com.zyl.hospital.registration.utils.ActivityManager;
-import com.zyl.hospital.registration.utils.SPUtils;
+import com.zyl.hospital.registration.ui.mvp.user.login.LoginRegisterActivity;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -21,19 +22,23 @@ import org.aspectj.lang.annotation.Pointcut;
 @Aspect
 public class CheckLoginAspect {
 
-    @Pointcut("execution(@com.app.annotation.aspect.CheckLogin * *(..))")//方法切入点
+    @Pointcut("execution(@com.annotation.aspect.CheckLogin * *(..))")//方法切入点
     public void methodAnnotated() {
     }
 
     @Around("methodAnnotated()")//在连接点进行方法替换
     public void aroundJoinPoint(ProceedingJoinPoint joinPoint) throws Throwable {
-        if (null == SPUtils.getSP(App.getInstance(),"isLogin",Boolean.class)) {
-            Snackbar.make(ActivityManager.getInstance().getCurrActivity().getWindow().getDecorView(), "请先登录!", Snackbar.LENGTH_LONG)
+//        if (!(Boolean) SPUtils.getSP(App.getInstance(),"isLogin",false)) {
+        if(true){
+            Snackbar.make(App.getInstance().getCurActivity().getWindow().getDecorView(), "请先登录!", Snackbar.LENGTH_LONG)
                     .setAction("登录", new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
 //                            TRouter.go(C.LOGIN);
                             //跳转至登录界面
+                            Activity activity = App.getInstance().getCurActivity();
+                            Intent intent = new Intent(activity, LoginRegisterActivity.class);
+                            activity.startActivity(intent);
                         }
                     }).show();
             return;

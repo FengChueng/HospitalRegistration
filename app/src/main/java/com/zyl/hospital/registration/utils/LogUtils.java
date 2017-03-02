@@ -300,4 +300,38 @@ public class LogUtils {
             Log.d(tag, "╚═══════════════════════════════════════════════════════════════════════════════════════");
         }
     }
+
+
+    /**
+     * 点击Log跳转到指定源码位置
+     *
+     * @param tag
+     * @param msg
+     */
+    public static void showLog(String tag, String msg) {
+        if (LOG_DEBUG&&!TextUtils.isEmpty(msg) ) {
+            if (TextUtils.isEmpty(tag)) tag = tag;
+            StackTraceElement[] stackTraceElement = Thread.currentThread().getStackTrace();
+            int currentIndex = -1;
+            for (int i = 0; i < stackTraceElement.length; i++) {
+                if (stackTraceElement[i].getMethodName().compareTo("showLog") == 0) {
+                    currentIndex = i + 1;
+                    break;
+                }
+            }
+            if (currentIndex >= 0) {
+                String fullClassName = stackTraceElement[currentIndex].getClassName();
+                String className = fullClassName.substring(fullClassName
+                        .lastIndexOf(".") + 1);
+                String methodName = stackTraceElement[currentIndex].getMethodName();
+                String lineNumber = String
+                        .valueOf(stackTraceElement[currentIndex].getLineNumber());
+
+                Log.i(tag, msg + "\n  ---->at " + className + "." + methodName + "("
+                        + className + ".java:" + lineNumber + ")");
+            } else {
+                Log.i(tag, msg);
+            }
+        }
+    }
 }

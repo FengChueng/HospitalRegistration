@@ -11,7 +11,6 @@ import com.zyl.hospital.registration.bean.ResultEntity;
 import com.zyl.hospital.registration.bean.UserEntity;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import shem.com.materiallogin.DefaultLoginView;
 import shem.com.materiallogin.DefaultRegisterView;
 import shem.com.materiallogin.MaterialLoginView;
@@ -72,7 +71,7 @@ public class LoginRegisterActivity extends MvpBaseActivity<LoginRegisterContract
     }
 
     @Override
-    protected int getContentViewID() {
+    protected int getLayoutID() {
         return R.layout.activity_login_register;
     }
 
@@ -80,7 +79,6 @@ public class LoginRegisterActivity extends MvpBaseActivity<LoginRegisterContract
     protected LoginRegisterContract.LoginPresenter createPresenter() {
         return new LoginRegisterPresenterImpl(this);
     }
-
 
     //implements LoginRegisterContract.LoginRegisterView
     @Override
@@ -108,10 +106,4 @@ public class LoginRegisterActivity extends MvpBaseActivity<LoginRegisterContract
         return this;
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 }

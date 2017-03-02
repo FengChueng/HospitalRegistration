@@ -15,4 +15,9 @@ public class LoginRegisterPresenterImpl extends LoginRegisterContract.LoginPrese
     void login(String mobile, String password) {
         
     }
+
+    @Override
+    void register(String mobile, String password) {
+
+    }
 }

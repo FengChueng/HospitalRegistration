@@ -3,14 +3,14 @@ package com.zyl.hospital.registration.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 
-import com.zhy.autolayout.AutoLayoutActivity;
 import com.zyl.hospital.registration.MainActivity;
 import com.zyl.hospital.registration.R;
 
 
-public class SplashActivity extends AutoLayoutActivity {
+public class SplashActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

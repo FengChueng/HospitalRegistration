@@ -10,6 +10,9 @@ android {
         targetSdkVersion Integer.parseInt(project.TARGET_SDK_VERSION)
         versionCode 1
         versionName "1.0"
+        //支持renderscript 模糊
+        renderscriptTargetApi 20
+        renderscriptSupportModeEnabled true
 //        jackOptions {
 //            enabled true
 //        }
@@ -35,6 +38,7 @@ ext{
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
+
     //base
     compile "com.android.support:appcompat-v7:${supportVersion}"
     compile "com.android.support:recyclerview-v7:${supportVersion}"

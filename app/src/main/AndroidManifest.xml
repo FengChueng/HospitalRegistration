@@ -9,7 +9,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".ui.SplashActivity"
             android:theme="@style/ThemeSplash">
@@ -19,7 +19,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.mvp.user.login.LoginRegisterActivity"></activity>
+        <activity android:name=".ui.mvp.user.login.LoginRegisterActivity" />
+
+        <!-- autoLayout参数 -->
+        <meta-data
+            android:name="design_width"
+            android:value="1080" />
+        <meta-data
+            android:name="design_height"
+            android:value="1920" />
+
+        <activity android:name=".ui.mvp.user.userinfo.UserInfoActivity"></activity>
     </application>
 
 </manifest>
