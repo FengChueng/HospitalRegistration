@@ -12,15 +12,21 @@
         <activity android:name=".MainActivity" />
         <activity
             android:name=".ui.SplashActivity"
-            android:theme="@style/ThemeSplash">
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.mvp.user.login.LoginRegisterActivity" />
-
+        <activity android:name=".ui.mvp.user.login.LoginRegisterActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".ui.mvp.user.userinfo.UserInfoActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            />
         <!-- autoLayout参数 -->
         <meta-data
             android:name="design_width"
@@ -28,8 +34,5 @@
         <meta-data
             android:name="design_height"
             android:value="1920" />
-
-        <activity android:name=".ui.mvp.user.userinfo.UserInfoActivity"></activity>
     </application>
-
 </manifest>
