@@ -1,10 +1,10 @@
-package com.zyl.hospital.registration.http.api;
+package com.zyl.hospital.registration.data.remote.http.api;
 
 
 import com.zyl.hospital.registration.App;
 import com.zyl.hospital.registration.constants.ApiConstant;
 import com.zyl.hospital.registration.constants.AppConfig;
-import com.zyl.hospital.registration.http.gson.CustomGsonConverterFactory;
+import com.zyl.hospital.registration.data.remote.http.gson.CustomGsonConverterFactory;
 import com.zyl.hospital.registration.utils.NetWorkUtils;
 
 import java.io.File;

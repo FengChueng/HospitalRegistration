@@ -1,8 +1,6 @@
-package com.zyl.hospital.registration.bean;
+package com.zyl.hospital.registration.data.model;
 
-/**
- * Created by zhangyinglong on 2017/2/21.
- */
+
 public class ResultEntity<T> {
     /** 状态码 ApiConstant.REQUEST_SUCCESS/ApiConstant.REQUEST_FAIL */
     public int status;

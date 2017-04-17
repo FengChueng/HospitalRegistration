@@ -8,6 +8,8 @@ package com.zyl.hospital.registration.constants;
  */
 public class AppConstants {
 
+    public static final String BMOB_APPKEY = "cadcfea6297c135731818122c5f01f4b";
+
 
     public static final String CONTENT_TYPE_FILE = "multipart/form-data";
 

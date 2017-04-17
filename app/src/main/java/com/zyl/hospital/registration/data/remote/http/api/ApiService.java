@@ -1,4 +1,4 @@
-package com.zyl.hospital.registration.http.api;
+package com.zyl.hospital.registration.data.remote.http.api;
 
 
 /**

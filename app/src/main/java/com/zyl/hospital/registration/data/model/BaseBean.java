@@ -1,4 +1,4 @@
-package com.zyl.hospital.registration.base;
+package com.zyl.hospital.registration.data.model;
 
 import java.io.Serializable;
 

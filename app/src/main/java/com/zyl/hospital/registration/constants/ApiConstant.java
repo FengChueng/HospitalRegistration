@@ -23,4 +23,6 @@ public class ApiConstant {
     /** 测试 url */
     public static final String TEST_URL = "api/home/medicines";
 
+    public static final String BASE_URL = "192.168.23.1:8080/";
+
 }

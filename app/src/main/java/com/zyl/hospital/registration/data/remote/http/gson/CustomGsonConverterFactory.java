@@ -1,4 +1,4 @@
-package com.zyl.hospital.registration.http.gson;
+package com.zyl.hospital.registration.data.remote.http.gson;
 
 
 import com.google.gson.Gson;
