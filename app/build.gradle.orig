@@ -16,7 +16,7 @@ android {
 //        jackOptions {
 //            enabled true
 //        }
-//        multiDexEnabled true  // this line will solve this problem
+        multiDexEnabled true  // this line will solve this problem
     }
     buildTypes {
         release {
@@ -40,6 +40,7 @@ android {
 //        sourceCompatibility JavaVersion.VERSION_1_8
 //        targetCompatibility JavaVersion.VERSION_1_8
 //    }
+    buildToolsVersion '25'
 }
 
 ext{
@@ -69,6 +70,7 @@ dependencies {
     //autolayout
     compile 'com.zhy:autolayout:1.4.1'
     //-----------------图片选择器----------------------------
+<<<<<<< HEAD
     compile 'cn.finalteam:galleryfinal:1.4.3'
     //compile 'cn.finalteam.rxgalleryfinal:library:0.0.3'
 
@@ -86,6 +88,7 @@ dependencies {
     compile 'com.romainpiel.shimmer:library:1.4.0@aar'
 
 
+=======
     compile 'cn.finalteam.rxgalleryfinal:library:0.0.3'
     //retrofit2 + rxjava1 + rxandroid
     compile 'io.reactivex:rxjava:1.2.6'
@@ -101,6 +104,7 @@ dependencies {
     //retrofit日志打印
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.6.1'
     compile 'com.romainpiel.shimmer:library:1.4.0@aar'
+>>>>>>> 97076b7e8cb3ac1582f90f2ae74b53f0594a6c06
     //aspectjrt aop
     compile 'org.aspectj:aspectjrt:1.8.9'
     compile project(':annotation')

@@ -106,7 +106,6 @@ public class ActivityManager {
      */
     public int getStackSize(){
         if(activityStack == null) return 0;
-
         return activityStack.size();
     }
 
