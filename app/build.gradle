@@ -80,21 +80,6 @@ dependencies {
     compile ('com.squareup.retrofit2:retrofit:2.1.0')
     compile ('com.squareup.retrofit2:converter-gson:2.1.0')
     compile ('com.squareup.retrofit2:adapter-rxjava:2.1.0')
-//    compile ('com.squareup.retrofit2:retrofit:2.1.0'){
-//        exclude group: 'com.squareup.okhttp3'
-//    }
-//    compile ('com.squareup.retrofit2:converter-gson:2.1.0'){
-//        exclude group: 'com.google.code.gson'
-//        exclude group: 'com.squareup.okhttp3'
-//    }
-//    compile ('com.squareup.retrofit2:adapter-rxjava:2.1.0'){
-//        exclude group: 'io.reactivex'
-//        exclude group: 'com.squareup.okhttp3'
-//    }
-    //6.0动态权限 基于rxjava
-    //compile 'com.tbruyelle.rxpermissions:rxpermissions:0.9.1@aar'
-
-    //okhttp + logging
     compile 'com.squareup.okhttp3:okhttp:3.6.0'
     compile 'com.squareup.okhttp3:logging-interceptor:3.6.0'//retrofit日志打印
     //adapterHelper
@@ -106,18 +91,6 @@ dependencies {
     //aspectjrt aop
     compile 'org.aspectj:aspectjrt:1.8.9'
     compile project(':annotation')
-
-    //3.5.0：请务必查看下面注释[1]
-    //compile ('cn.bmob.android:bmob-sdk:3.5.3')
-    //bmob-push：Bmob的推送包
-    //compile 'cn.bmob.android:bmob-push:0.8'
-    //bmob-sms ：Bmob单独为短信服务提供的包
-    //compile 'cn.bmob.android:bmob-sms:1.0.1'
-    //兼容Android6.0
-    //compile 'cn.bmob.android:http-legacy:1.0'
-
-    //compile 'com.android.support:multidex:1.0.1'
-
     compile 'com.zhy:okhttputils:2.6.2'
 
 }
