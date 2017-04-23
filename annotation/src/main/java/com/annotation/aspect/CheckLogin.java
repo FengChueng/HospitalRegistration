@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
  * 功能：检查用户是否登陆，未登录提示登录，不会执行下面的逻辑
  */
 @Retention(RetentionPolicy.CLASS)
-@Target(ElementType.METHOD)
+@Target({ElementType.METHOD,ElementType.LOCAL_VARIABLE})
 public @interface CheckLogin {
 
 }

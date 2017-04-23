@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.mvp.user.login.LoginRegisterActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <shem.com.materiallogin.MaterialLoginView
         android:id="@+id/login_register"
         android:layout_width="match_parent"
@@ -12,6 +10,5 @@
         app:loginView="@layout/login_login_view"
         app:registerView="@layout/default_register_view"
         >
-
     </shem.com.materiallogin.MaterialLoginView>
-</RelativeLayout>
+</FrameLayout>

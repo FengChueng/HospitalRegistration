@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <shem.com.materiallogin.DefaultRegisterView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/login"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+android:id="@+id/login"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
     app:registerTitle="@string/registerTitle"
     app:registerHint="@string/registerHint"
     app:registerPasswordHint="@string/registerPasswordHint"
     app:registerRepeatPasswordHint="@string/registerRepeatPasswordHint"
-    app:registerTextColor="@color/white"
-    app:registerActionText="@string/registerActionText"/>
+    app:registerTextColor="@color/material_login_login_color"
+    app:registerActionText="@string/registerActionText"
+
+    />

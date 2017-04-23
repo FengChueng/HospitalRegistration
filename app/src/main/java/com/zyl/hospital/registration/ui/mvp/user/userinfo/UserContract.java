@@ -8,10 +8,8 @@ import com.zyl.hospital.registration.base.BaseModel;
 import com.zyl.hospital.registration.base.BasePresenter;
 import com.zyl.hospital.registration.base.BaseView;
 import com.zyl.hospital.registration.bean.ResultEntity;
-import com.zyl.hospital.registration.bean.UserEntity;
 
 import retrofit2.http.GET;
-import retrofit2.http.Query;
 import rx.Observable;
 
 
@@ -24,12 +22,12 @@ public interface UserContract {
     }
 
     interface UserView extends BaseView {
-        void loadUserInfo(ResultEntity<UserEntity> userEntity);
+        void loadUserInfo(ResultEntity<?> userEntity);
         void loadError();
     }
 
     interface UserModel extends BaseModel {
         @GET("")
-        Observable<ResultEntity<UserEntity>> getUserInfo(@Query("mobile") String mobile, @Query("password") String password);
+        Observable<ResultEntity<?>> getUserInfo(String mobile, String password);
     }
 }

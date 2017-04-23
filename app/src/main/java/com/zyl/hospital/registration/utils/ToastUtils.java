@@ -3,6 +3,10 @@ package com.zyl.hospital.registration.utils;
 import android.content.Context;
 import android.widget.Toast;
 
+import com.github.johnpersano.supertoasts.library.Style;
+import com.github.johnpersano.supertoasts.library.SuperToast;
+import com.zyl.hospital.registration.R;
+
 /**
  * Created by zhouyou on 2016/6/28.
  * Class desc: 单例土司
@@ -40,4 +44,15 @@ public class ToastUtils {
         }
         mToast.show();
     }
+
+    public static void showMetrailToast(Context context,String msg){
+        new SuperToast(context)
+                .setText(msg)
+                .setDuration(Style.DURATION_LONG)
+                .setColor(ResourceUtils.getColor(R.color.load_red))
+                .setAnimations(Style.ANIMATIONS_FLY)
+                .show();
+    }
+
+
 }

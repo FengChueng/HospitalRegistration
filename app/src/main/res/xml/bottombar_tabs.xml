@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        id="@+id/tab_news"
+        icon="@mipmap/news_selector"
+        title="News" />
+    <tab
+        id="@+id/tab_appoint"
+        icon="@mipmap/appoint"
+        title="Appointment" />
+
+    <tab
+        id="@+id/tab_appoint_manager"
+        icon="@mipmap/appoint_manager"
+        title="AppointmentManager" />
+
+    <tab
+        id="@+id/tab_personal"
+        icon="@mipmap/personal_selector"
+        title="Personal" />
+</tabs>

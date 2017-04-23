@@ -6,7 +6,9 @@ import android.support.design.widget.Snackbar;
 import android.view.View;
 
 import com.zyl.hospital.registration.App;
+import com.zyl.hospital.registration.constants.AppConstants;
 import com.zyl.hospital.registration.ui.mvp.user.login.LoginRegisterActivity;
+import com.zyl.hospital.registration.utils.SPUtils;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -28,22 +30,25 @@ public class CheckLoginAspect {
 
     @Around("methodAnnotated()")//在连接点进行方法替换
     public void aroundJoinPoint(ProceedingJoinPoint joinPoint) throws Throwable {
-//        if (!(Boolean) SPUtils.getSP(App.getInstance(),"isLogin",false)) {
-        if(true){
-            Snackbar.make(App.getInstance().getCurActivity().getWindow().getDecorView(), "请先登录!", Snackbar.LENGTH_LONG)
+        boolean isLogin = (boolean) SPUtils.getSP(App.getInstance(), AppConstants.KEY_IS_LOGIN,false);
+        boolean isNeedLogin = (boolean) SPUtils.getSP(App.getInstance(), AppConstants.KEY_IS_NEED_LOGIN,false);
+        if (isNeedLogin&&!isLogin) {
+            final Activity curActivity = App.getInstance().getCurActivity();
+            Snackbar.make(curActivity.getWindow().getDecorView(), "请先登录!", Snackbar.LENGTH_LONG)
                     .setAction("登录", new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
 //                            TRouter.go(C.LOGIN);
                             //跳转至登录界面
-                            Activity activity = App.getInstance().getCurActivity();
+                            Activity activity = curActivity;
                             Intent intent = new Intent(activity, LoginRegisterActivity.class);
                             activity.startActivity(intent);
                         }
                     }).show();
             return;
+        }else{
+            joinPoint.proceed();//执行原方法
         }
-        joinPoint.proceed();//执行原方法
     }
 }
 

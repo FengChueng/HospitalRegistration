@@ -16,6 +16,11 @@ public abstract class MvpBaseActivity<T extends BasePresenter> extends BaseActiv
         super.onCreate(savedInstanceState);
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
     /**
      * 创建presenter
      * @return

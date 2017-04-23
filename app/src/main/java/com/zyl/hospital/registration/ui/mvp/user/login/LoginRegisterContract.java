@@ -7,11 +7,10 @@ package com.zyl.hospital.registration.ui.mvp.user.login;
 import com.zyl.hospital.registration.base.BaseModel;
 import com.zyl.hospital.registration.base.BasePresenter;
 import com.zyl.hospital.registration.base.BaseView;
+import com.zyl.hospital.registration.bean.BaseBean;
+import com.zyl.hospital.registration.bean.PatientBean;
 import com.zyl.hospital.registration.bean.ResultEntity;
-import com.zyl.hospital.registration.bean.UserEntity;
 
-import retrofit2.http.GET;
-import retrofit2.http.Query;
 import rx.Observable;
 
 
@@ -20,23 +19,21 @@ import rx.Observable;
  */
 public interface LoginRegisterContract {
     abstract class LoginPresenter extends BasePresenter {
-        abstract void login(String mobile,String password);
+        abstract void login(String mobile,String password,int role);
         abstract void register(String mobile, String password);
     }
 
     interface LoginRegisterView extends BaseView {
-        void loginSuccess(ResultEntity<UserEntity> userEntity);
-        void loginError();
+        void loginSuccess(BaseBean baseBean);
+        void loginError(String msg);
 
-        void registerSuccess(ResultEntity<UserEntity> userEntity);
-        void registerError();
+        void registerSuccess(PatientBean userEntity);
+        void registerError(String msg);
     }
 
     interface LoginRegisterModel extends BaseModel {
-        @GET("")
-        Observable<ResultEntity<UserEntity>> login(@Query("mobile") String mobile, @Query("password") String password);
+        Observable<ResultEntity<?>> login( String mobile, String password,int role);
 
-        @GET("")
-        Observable<ResultEntity<UserEntity>> register(@Query("mobile") String mobile, @Query("password") String password);
+        Observable<ResultEntity<PatientBean>> register(String mobile, String password);
     }
 }

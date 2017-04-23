@@ -1,7 +1,7 @@
 package com.zyl.hospital.registration.base;
 
 
-import rx.Subscriber;
+import rx.Subscription;
 import rx.subscriptions.CompositeSubscription;
 
 public abstract class BasePresenter<T extends BaseView> {
@@ -16,11 +16,11 @@ public abstract class BasePresenter<T extends BaseView> {
         this.mView = view;
     }
 
-    public void addSubscription(Subscriber subscriber){
+    public void addSubscription(Subscription subscription){
         if (mcompositeSubscription == null) {
             mcompositeSubscription = new CompositeSubscription();
         }
-        mcompositeSubscription.add(subscriber);
+        mcompositeSubscription.add(subscription);
 
     }
 

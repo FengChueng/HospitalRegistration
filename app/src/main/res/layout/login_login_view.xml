@@ -8,5 +8,4 @@
     app:loginTitle="@string/loginTitle"
     app:loginHint="@string/loginHint"
     app:loginPasswordHint="@string/loginPasswordHint"
-    app:loginTextColor="@color/black"
     app:loginActionText="@string/loginActionText"/>

@@ -6,7 +6,7 @@ package com.zyl.hospital.registration.constants;
  *
  * 该类用于定义Eventbus的消息常量。
  */
-public class MsgConstants {
+public interface MsgConstants {
 
     public static final int CUSTOM_MSG_BASE = 10000;
 

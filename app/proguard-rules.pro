@@ -303,3 +303,9 @@
 -keep class org.apache.commons.**{*;}
 -keep class org.apache.http.**{*;}
 
+# BaseRecyclerViewAdapterHelper
+-keep class com.chad.library.adapter.** {
+   *;
+}
+
+

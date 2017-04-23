@@ -9,7 +9,6 @@ import com.annotation.aspect.SingleClick;
 import com.zyl.hospital.registration.R;
 import com.zyl.hospital.registration.base.MvpBaseActivity;
 import com.zyl.hospital.registration.bean.ResultEntity;
-import com.zyl.hospital.registration.bean.UserEntity;
 
 public class UserInfoActivity extends MvpBaseActivity<UserContract.UserPresenter> implements UserContract.UserView{
     //extends MvpBaseActivity
@@ -35,7 +34,7 @@ public class UserInfoActivity extends MvpBaseActivity<UserContract.UserPresenter
 
     //implements UserContract.UserView
     @Override
-    public void loadUserInfo(ResultEntity<UserEntity> userEntity) {
+    public void loadUserInfo(ResultEntity<?> userEntity) {
 
     }
 

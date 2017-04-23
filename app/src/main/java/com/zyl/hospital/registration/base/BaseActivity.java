@@ -158,9 +158,12 @@ public abstract class BaseActivity extends SlideBackActivity {
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setDisplayShowTitleEnabled(false);
         }
         return toolbar;
     }
+
+
 
     /**
      * 设置toolbar标题
@@ -182,6 +185,11 @@ public abstract class BaseActivity extends SlideBackActivity {
         TextView toolbar_title = (TextView)toolbar.findViewById(R.id.toolbar_title);
         toolbar_title.setText(title);
         setSupportActionBar(toolbar);
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayShowTitleEnabled(false);
+        }
+
         return toolbar;
     }
 

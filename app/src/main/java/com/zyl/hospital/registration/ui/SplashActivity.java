@@ -6,7 +6,6 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 
-import com.zyl.hospital.registration.MainActivity;
 import com.zyl.hospital.registration.R;
 
 
