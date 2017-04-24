@@ -19,7 +19,7 @@ public interface DeptContract {
     }
 
     interface DeptView extends BaseView{
-        void getDeptListSucc(List<Department> hospitals);
+        void getDeptListSucc(List<Department> departments);
         void getDeptListError(String msg);
     }
 

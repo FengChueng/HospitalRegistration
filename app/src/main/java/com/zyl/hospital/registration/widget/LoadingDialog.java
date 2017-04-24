@@ -54,7 +54,7 @@ public class LoadingDialog {
      */
     public static void cancelDialogForLoading() {
         if(mLoadingDialog != null) {
-            mLoadingDialog.cancel();
+            mLoadingDialog.dismiss();
         }
     }
 }

@@ -15,7 +15,7 @@ import com.zyl.hospital.registration.adapter.DeptAdapter;
 import com.zyl.hospital.registration.base.MvpBaseActivity;
 import com.zyl.hospital.registration.bean.Department;
 import com.zyl.hospital.registration.constants.AppConstants;
-import com.zyl.hospital.registration.ui.SettingActivity;
+import com.zyl.hospital.registration.ui.mvp.appoint.doctor.DoctorActivity;
 import com.zyl.hospital.registration.utils.RouterUtils;
 import com.zyl.hospital.registration.utils.ToastUtils;
 
@@ -66,21 +66,14 @@ public class DeptActivity extends MvpBaseActivity<DeptContract.DeptPresenter> im
         mRecyclerView.setAdapter(adapter);
         mRecyclerView.addOnItemTouchListener(new OnItemClickListener() {
             @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                super.onItemClick(adapter, view, position);
+            public void SimpleOnItemClick(BaseQuickAdapter baseQuickAdapter, View view, int position) {
                 Department department = (Department) baseQuickAdapter.getItem(position);
                 Bundle bundle = new Bundle();
                 bundle.putString(AppConstants.KEY_DEPT_ID, department.getDeptId());
-                RouterUtils.gotoNext(getActivity(), SettingActivity.class, bundle);
-            }
-
-            @Override
-            public void SimpleOnItemClick(BaseQuickAdapter baseQuickAdapter, View view, int i) {
-
+                bundle.putString(AppConstants.KEY_DEPT_NAME,department.getDeptName());
+                RouterUtils.gotoNext(getActivity(), DoctorActivity.class, bundle);
             }
         });
-
-
     }
 
     @Override
@@ -94,8 +87,8 @@ public class DeptActivity extends MvpBaseActivity<DeptContract.DeptPresenter> im
     }
 
     @Override
-    public void getDeptListSucc(List<Department> hospitals) {
-        adapter.addData(hospitals);
+    public void getDeptListSucc(List<Department> departments) {
+        adapter.addData(departments);
     }
 
     @Override

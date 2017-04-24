@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/hospital_ll"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:gravity="center_vertical"
+    android:layout_height="140dp">
+   <com.zyl.hospital.registration.widget.CircleImageView
+       android:id="@+id/img"
+       android:padding="30dp"
+       android:layout_width="80dp"
+       android:layout_height="80dp"
+       android:layout_centerVertical="true"
+       />
+
+   <LinearLayout
+       android:id="@+id/content_ll"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:layout_toRightOf="@+id/img"
+       android:orientation="vertical"
+       android:padding="10dp"
+       android:gravity="center_vertical"
+       >
+
+      <TextView
+          android:id="@+id/doctor_name"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:textSize="18sp"
+          android:gravity="center_vertical"
+          android:text="name"
+          android:maxLines="1"
+          android:ellipsize="end"
+          android:layout_marginTop="5dp"
+          />
+
+      <TextView
+          android:id="@+id/dept_name"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:textSize="16sp"
+          android:gravity="center_vertical"
+          android:text="科室"
+          android:maxLines="1"
+          android:ellipsize="end"
+          android:layout_marginTop="15dp"
+          />
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          android:layout_marginTop="15dp"
+          android:gravity="center_vertical"
+          >
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:textSize="16sp"
+             android:gravity="center_vertical"
+             android:text="科室"
+             android:maxLines="1"
+             android:ellipsize="end"
+             />
+         <TextView
+             android:id="@+id/doctor_info"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:textSize="16sp"
+             android:gravity="center_vertical"
+             android:text="绵阳师范医务室"
+             android:maxLines="1"
+             android:ellipsize="end"
+             />
+
+      </LinearLayout>
+
+
+   </LinearLayout>
+   <com.haozhang.lib.SlantedTextView
+    android:id="@+id/slv_right"
+    android:layout_width="@dimen/text_height"
+    android:layout_height="@dimen/text_height"
+    app:slantedBackgroundColor="@color/slanted_4c"
+    app:slantedMode="right"
+    app:slantedLength="@dimen/text_slanted"
+    app:slantedTextSize="10sp"
+    app:slantedText="专家"
+    android:layout_alignTop="@+id/content_ll"
+    android:layout_alignEnd="@+id/content_ll"
+    />
+
+   <com.zyl.hospital.registration.widget.CircleImageView
+       android:id="@+id/can_appointment"
+       android:padding="30dp"
+       android:layout_width="30dp"
+       android:layout_height="30dp"
+       android:layout_centerVertical="true"
+       android:layout_alignParentEnd="true"
+       android:layout_marginEnd="40dp"
+       />
+
+
+
+</RelativeLayout>

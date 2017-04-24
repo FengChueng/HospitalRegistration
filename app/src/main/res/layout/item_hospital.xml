@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-   <ImageView
+   <com.zyl.hospital.registration.widget.CircleImageView
        android:id="@+id/img"
        android:padding="30dp"
        android:layout_width="80dp"

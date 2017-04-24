@@ -37,4 +37,5 @@ public interface AppConstants {
     String KEY_IS_NEED_LOGIN = "isneedlogin";
     String KEY_HOSPITAL_ID = "hospitalId";
     String KEY_DEPT_ID = "deptId";
+    String KEY_DEPT_NAME = "deptName";
 }

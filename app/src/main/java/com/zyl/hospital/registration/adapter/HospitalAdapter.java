@@ -1,7 +1,6 @@
 package com.zyl.hospital.registration.adapter;
 
 import android.content.Context;
-import android.widget.ImageView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -10,6 +9,7 @@ import com.zyl.hospital.registration.R;
 import com.zyl.hospital.registration.bean.Hospital;
 import com.zyl.hospital.registration.constants.ApiConstant;
 import com.zyl.hospital.registration.utils.ImageLoader;
+import com.zyl.hospital.registration.widget.CircleImageView;
 
 import java.util.List;
 
@@ -39,7 +39,7 @@ public class HospitalAdapter extends BaseQuickAdapter<Hospital,BaseViewHolder> {
         helper.setText(R.id.hospital_name, item.getHospitalName());
         ((SlantedTextView)helper.getView(R.id.slv_right)).setText(getLevel(item.getLevel()));
         ImageLoader.getIns(mContext).load(ApiConstant.API_SERVER_URL+item.getImg(),
-                (ImageView) helper.getView(R.id.img),R.mipmap.hospital_default,R.mipmap.hospital_default);
+                (CircleImageView) helper.getView(R.id.img),R.mipmap.hospital_default,R.mipmap.hospital_default);
 
     }
 

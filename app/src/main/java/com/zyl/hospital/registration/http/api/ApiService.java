@@ -33,6 +33,13 @@ public interface ApiService {
 
 
     //--------------医生数据请求
+    @GET(ApiConstant.queryAllDoctorById)
+    Observable<ResultEntity<List<DoctorBean>>> getDoctors(
+            @Query("deptId") String deptId,
+            @Query("page") int page,
+            @Query("size") int size);
+
+
     @POST(ApiConstant.doctorlogin)
     @FormUrlEncoded
     Observable<ResultEntity<DoctorBean>> doctorlogin(

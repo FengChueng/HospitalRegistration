@@ -98,7 +98,7 @@ public class HospitalFragment extends MvpBaseFragment<HospitalContract.HospitalP
         mRecyclerView.addOnItemTouchListener(new OnItemClickListener() {
             @Override
             public void SimpleOnItemClick(BaseQuickAdapter baseQuickAdapter, View view, int position) {
-                super.onItemClick(adapter, view, position);
+                //super.onItemClick(adapter, view, position);
                 Hospital hospital = (Hospital) adapter.getItem(position);
                 LogUtils.e("position:"+position+"hospital:"+hospital.toString());
                 Bundle bundle = new Bundle();
