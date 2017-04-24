@@ -99,6 +99,7 @@ dependencies {
 
     //adapterHelper
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.6.1'
+//    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:v1.9.7'
     //retrofit2 + rxjava1 + rxandroid
     compile 'io.reactivex:rxjava:1.2.6'
     compile 'io.reactivex:rxandroid:1.2.1'

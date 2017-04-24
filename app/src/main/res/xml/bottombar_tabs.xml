@@ -2,20 +2,20 @@
 <tabs>
     <tab
         id="@+id/tab_news"
-        icon="@mipmap/news_selector"
-        title="News" />
+        icon="@mipmap/bar_news"
+        title="新闻资讯" />
     <tab
         id="@+id/tab_appoint"
-        icon="@mipmap/appoint"
-        title="Appointment" />
+        icon="@mipmap/bar_appoint"
+        title="预约挂号" />
 
     <tab
         id="@+id/tab_appoint_manager"
-        icon="@mipmap/appoint_manager"
-        title="AppointmentManager" />
+        icon="@mipmap/bar_manager"
+        title="预约管理" />
 
     <tab
         id="@+id/tab_personal"
-        icon="@mipmap/personal_selector"
-        title="Personal" />
+        icon="@mipmap/bar_personal"
+        title="个人中心" />
 </tabs>

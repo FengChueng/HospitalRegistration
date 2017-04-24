@@ -15,7 +15,7 @@ import java.util.List;
 
 public class DeptAdapter extends BaseQuickAdapter<Department,BaseViewHolder> {
     public DeptAdapter(Context context, List<Department> hospitals) {
-        super(R.layout.dept_item, hospitals);
+        super(R.layout.item_dept, hospitals);
         this.mContext = context;
     }
 

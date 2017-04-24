@@ -40,7 +40,8 @@ public class DeptActivity extends MvpBaseActivity<DeptContract.DeptPresenter> im
             hospitalId = params.getString(AppConstants.KEY_HOSPITAL_ID);
             mPresenter.getDeptList(hospitalId,page,size);
         } else {
-            finish();
+            //
+            onBackPressed();
         }
     }
 

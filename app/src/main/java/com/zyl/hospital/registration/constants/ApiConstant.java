@@ -54,16 +54,16 @@ public interface ApiConstant {
 
     String getHospitals = "/hospital/queryall";//查询所有医院
     String patientlogin = "/patient/login";//病人登录
-    String patientregister = "/patient/register";
-    String getdepartmentsbyhid = "/hospital/queryByHospitalId";
+    String patientregister = "/patient/register/";
+    String getdepartmentsbyhid = "/hospital/queryByHospitalId/";
     String doctorlogin = "/doctor/login";
-    String getdoctorschedules = "/schedule/queryAllScheduleByDoctorAccount";
-    String addschedule = "/schedule/addScheduleByDoctorAccount";
-    String makeappointment = "/appointment/makeappointment";
-    String querydetail = "/appointment/queryByAppointId";
-    String queryAllAppointmentByPid = "/appointment/queryByPatientId";
-    String queryAllByPidAndStatus = "/appointment/queryByPatientIdAndStatus";
-    String queryAllByDid = "/appointment/queryByDoctorId";
-    String queryAllByDidAndStatus = "/appointment/queryByDoctorIdAndStatus";
-    String modifypatientinfo = "/patient/modifyPatientInfo";
+    String getdoctorschedules = "/schedule/queryAllScheduleByDoctorAccount/";
+    String addschedule = "/schedule/addScheduleByDoctorAccount/";
+    String makeappointment = "/appointment/makeappointment/";
+    String querydetail = "/appointment/queryByAppointId/";
+    String queryAllAppointmentByPid = "/appointment/queryByPatientId/";
+    String queryAllByPidAndStatus = "/appointment/queryByPatientIdAndStatus/";
+    String queryAllByDid = "/appointment/queryByDoctorId/";
+    String queryAllByDidAndStatus = "/appointment/queryByDoctorIdAndStatus/";
+    String modifypatientinfo = "/patient/modifyPatientInfo/";
 }

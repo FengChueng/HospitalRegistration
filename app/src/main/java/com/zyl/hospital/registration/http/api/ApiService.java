@@ -16,7 +16,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.Path;
+import retrofit2.http.Query;
 import rx.Observable;
 
 public interface ApiService {
@@ -27,9 +27,9 @@ public interface ApiService {
     //--------------部门数据请求
     @GET(ApiConstant.getdepartmentsbyhid)
     Observable<ResultEntity<List<Department>>> getDepartsments(
-            @Path("hospitalId") String hospitalId,
-            @Path("page") int page,
-            @Path("size") int size);
+            @Query("hospitalId") String hospitalId,
+            @Query("page") int page,
+            @Query("size") int size);
 
 
     //--------------医生数据请求
@@ -71,53 +71,53 @@ public interface ApiService {
     @GET(ApiConstant.getdoctorschedules)
     @FormUrlEncoded
     Observable<ResultEntity<List<DoctorSchedule>>> queryAllScheduleByDoctorAccount(
-            @Path("doctorAccount") String doctorAccount);
+            @Query("doctorAccount") String doctorAccount);
 
     //添加日程
     @GET(ApiConstant.addschedule)
     @FormUrlEncoded
-    Observable<ResultEntity<DoctorSchedule>> addSchedule(@Path("doctorAccount") String doctorAccount,
-                                                         @Path("status") int status,
-                                                         @Path("maxAppointmentCount") int maxAppointmentCount,
-                                                         @Path("scheduleDate") long scheduleDate);
+    Observable<ResultEntity<DoctorSchedule>> addSchedule(@Query("doctorAccount") String doctorAccount,
+                                                         @Query("status") int status,
+                                                         @Query("maxAppointmentCount") int maxAppointmentCount,
+                                                         @Query("scheduleDate") long scheduleDate);
 
     //--------------预约数据请求
     @GET(ApiConstant.makeappointment)
     @FormUrlEncoded
-    Observable<ResultEntity<?>> makeAppointment(@Path(value = "patientId") String patientId,
-                                                @Path(value = "doctorId") String doctorId,
-                                                @Path(value = "doctorScheduleId") String doctorScheduleId,
-                                                @Path(value = "price") float price,
-                                                @Path(value = "clinicDate") long clinicDate,
-                                                @Path(value = "appointDate") long appointDate,
-                                                @Path(value = "location") String location);
+    Observable<ResultEntity<?>> makeAppointment(@Query(value = "patientId") String patientId,
+                                                @Query(value = "doctorId") String doctorId,
+                                                @Query(value = "doctorScheduleId") String doctorScheduleId,
+                                                @Query(value = "price") float price,
+                                                @Query(value = "clinicDate") long clinicDate,
+                                                @Query(value = "appointDate") long appointDate,
+                                                @Query(value = "location") String location);
     @GET(ApiConstant.querydetail)
     @FormUrlEncoded
-    Observable<ResultEntity<Appointment>> queryDetailInfo(@Path(value = "doctorScheduleId") String doctorScheduleId);
+    Observable<ResultEntity<Appointment>> queryDetailInfo(@Query(value = "doctorScheduleId") String doctorScheduleId);
 
 
     @GET(ApiConstant.queryAllAppointmentByPid)
     @FormUrlEncoded
-    Observable<ResultEntity<List<Appointment>>> queryAllAppointmentByPid(@Path(value = "patientId") String patientId,
-                                                                         @Path(value = "page") int page,
-                                                                         @Path(value = "size") int size);
+    Observable<ResultEntity<List<Appointment>>> queryAllAppointmentByPid(@Query(value = "patientId") String patientId,
+                                                                         @Query(value = "page") int page,
+                                                                         @Query(value = "size") int size);
     @GET(ApiConstant.queryAllByDid)
     @FormUrlEncoded
-    Observable<ResultEntity<List<Appointment>>> queryAllAppointmentByDid(@Path(value = "doctorId") String doctorId,
-                                                                         @Path(value = "page") int page,
-                                                                         @Path(value = "size") int size);
+    Observable<ResultEntity<List<Appointment>>> queryAllAppointmentByDid(@Query(value = "doctorId") String doctorId,
+                                                                         @Query(value = "page") int page,
+                                                                         @Query(value = "size") int size);
     @GET(ApiConstant.queryAllByDidAndStatus)
     @FormUrlEncoded
-    Observable<ResultEntity<List<Appointment>>> queryByDoctorIdAndStatus(@Path(value = "doctorId") String doctorId,
-                                                                         @Path(value = "status") int status,
-                                                                         @Path(value = "page") int page,
-                                                                         @Path(value = "size") int size);
+    Observable<ResultEntity<List<Appointment>>> queryByDoctorIdAndStatus(@Query(value = "doctorId") String doctorId,
+                                                                         @Query(value = "status") int status,
+                                                                         @Query(value = "page") int page,
+                                                                         @Query(value = "size") int size);
     @GET(ApiConstant.queryAllAppointmentByPid)
     @FormUrlEncoded
-    Observable<ResultEntity<List<Appointment>>> queryByPatientIdAndStatus(@Path(value = "patientId") String patientId,
-                                                                          @Path(value = "status") int status,
-                                                                          @Path(value = "page") int page,
-                                                                          @Path(value = "size") int size);
+    Observable<ResultEntity<List<Appointment>>> queryByPatientIdAndStatus(@Query(value = "patientId") String patientId,
+                                                                          @Query(value = "status") int status,
+                                                                          @Query(value = "page") int page,
+                                                                          @Query(value = "size") int size);
     //queryByPatientId
 
 }

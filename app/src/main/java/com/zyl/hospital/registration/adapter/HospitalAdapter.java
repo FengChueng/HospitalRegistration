@@ -30,7 +30,7 @@ import static com.zyl.hospital.registration.constants.ApiConstant.HOSPITAL_LEVEL
 public class HospitalAdapter extends BaseQuickAdapter<Hospital,BaseViewHolder> {
 
     public HospitalAdapter(Context context, List<Hospital> hospitals) {
-        super(R.layout.hospital_item, hospitals);
+        super(R.layout.item_hospital, hospitals);
         this.mContext = context;
     }
 

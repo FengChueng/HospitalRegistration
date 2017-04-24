@@ -14,6 +14,7 @@ import com.zyl.hospital.registration.base.MvpBaseFragment;
 import com.zyl.hospital.registration.bean.Hospital;
 import com.zyl.hospital.registration.constants.AppConstants;
 import com.zyl.hospital.registration.ui.mvp.appoint.department.DeptActivity;
+import com.zyl.hospital.registration.utils.LogUtils;
 import com.zyl.hospital.registration.utils.RouterUtils;
 import com.zyl.hospital.registration.utils.ToastUtils;
 import com.zyl.hospital.registration.widget.wave.WaveSideBarView;
@@ -68,20 +69,41 @@ public class HospitalFragment extends MvpBaseFragment<HospitalContract.HospitalP
 //            }
 //        });
 
+//        mRecyclerView.addOnItemTouchListener(new SimpleClickListener() {
+//            @Override
+//            public void onItemClick(BaseQuickAdapter baseQuickAdapter, View view, int position) {
+//                Hospital hospital = (Hospital) adapter.getItem(position);
+//                LogUtils.e("position:"+position+"hospital:"+hospital.toString());
+//                Bundle bundle = new Bundle();
+//                bundle.putString(AppConstants.KEY_HOSPITAL_ID, hospital.getHospitalId());
+//                RouterUtils.gotoNext(getActivity(), DeptActivity.class, bundle);
+//            }
+//
+//            @Override
+//            public void onItemLongClick(BaseQuickAdapter baseQuickAdapter, View view, int i) {
+//
+//            }
+//
+//            @Override
+//            public void onItemChildClick(BaseQuickAdapter baseQuickAdapter, View view, int i) {
+//
+//            }
+//
+//            @Override
+//            public void onItemChildLongClick(BaseQuickAdapter baseQuickAdapter, View view, int i) {
+//
+//            }
+//        });
 
         mRecyclerView.addOnItemTouchListener(new OnItemClickListener() {
             @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+            public void SimpleOnItemClick(BaseQuickAdapter baseQuickAdapter, View view, int position) {
+                super.onItemClick(adapter, view, position);
                 Hospital hospital = (Hospital) adapter.getItem(position);
+                LogUtils.e("position:"+position+"hospital:"+hospital.toString());
                 Bundle bundle = new Bundle();
                 bundle.putString(AppConstants.KEY_HOSPITAL_ID, hospital.getHospitalId());
                 RouterUtils.gotoNext(getActivity(), DeptActivity.class, bundle);
-                super.onItemClick(adapter, view, position);
-            }
-
-            @Override
-            public void SimpleOnItemClick(BaseQuickAdapter baseQuickAdapter, View view, int i) {
-
             }
         });
     }

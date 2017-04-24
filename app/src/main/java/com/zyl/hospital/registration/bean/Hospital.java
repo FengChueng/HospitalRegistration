@@ -112,4 +112,20 @@ public class Hospital extends BaseBean{
 	public void setDepartments(Set<Department> departments) {
 		this.departments = departments;
 	}
+
+	@Override
+	public String toString() {
+		return "Hospital{" +
+				"hospitalId='" + hospitalId + '\'' +
+				", hospitalName='" + hospitalName + '\'' +
+				", info='" + info + '\'' +
+				", level=" + level +
+				", createDate=" + createDate +
+				", location='" + location + '\'' +
+				", longitude=" + longitude +
+				", latitude=" + latitude +
+				", img='" + img + '\'' +
+				", departments=" + departments +
+				'}';
+	}
 }

@@ -16,7 +16,10 @@ import rx.Observable;
 public class HospitalModelImpl implements HospitalContract.HospitalModel{
     @Override
     public Observable<ResultEntity<List<Hospital>>> getHospitalList(int page, int size) {
-        return Api.getInstance().createService(ApiService.class)
-                .getHospitals().compose(RxSchedulers.<ResultEntity<List<Hospital>>>io_main());
+        return Api
+                .getInstance()
+                .createService(ApiService.class)
+                .getHospitals()
+                .compose(RxSchedulers.<ResultEntity<List<Hospital>>>io_main());
     }
 }

@@ -47,4 +47,9 @@
         <item name="android:padding">20dp</item>
     </style>
 
+    <style name="bar_text_style">
+        <item name="android:textSize">10sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
 </resources>
