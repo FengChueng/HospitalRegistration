@@ -2,7 +2,7 @@ package com.zyl.hospital.registration.ui.mvp.user.login;
 
 import com.zyl.hospital.registration.bean.BaseBean;
 import com.zyl.hospital.registration.bean.PatientBean;
-import com.zyl.hospital.registration.bean.ResultEntity;
+import com.zyl.hospital.registration.bean.ResponseEntity;
 import com.zyl.hospital.registration.constants.ApiConstant;
 import com.zyl.hospital.registration.rx.RxSubscriber;
 
@@ -23,14 +23,14 @@ public class LoginRegisterPresenterImpl extends LoginRegisterContract.LoginPrese
     void login(String mobile, String password, int role) {
         addSubscription(mLoginModel
                 .login(mobile, password, role)
-                .subscribe(new RxSubscriber<ResultEntity<?>>(mLoginRegisterView.getActivity()) {
+                .subscribe(new RxSubscriber<ResponseEntity<?>>(mLoginRegisterView.getActivity()) {
                     @Override
-                    protected void _onNext(ResultEntity<?> patientBeanResultEntity) {
-                        int status = patientBeanResultEntity.getStatus();
+                    protected void _onNext(ResponseEntity<?> patientBeanResponseEntity) {
+                        int status = patientBeanResponseEntity.getStatus();
                         if (status == ApiConstant.SUCCESS) {
-                            mLoginRegisterView.loginSuccess((BaseBean) patientBeanResultEntity.getData());
+                            mLoginRegisterView.loginSuccess((BaseBean) patientBeanResponseEntity.getData());
                         } else {
-                            mLoginRegisterView.loginError(patientBeanResultEntity.getMsg());
+                            mLoginRegisterView.loginError(patientBeanResponseEntity.getMsg());
                         }
                     }
 
@@ -45,14 +45,14 @@ public class LoginRegisterPresenterImpl extends LoginRegisterContract.LoginPrese
     void register(String mobile, String password) {
         addSubscription(mLoginModel
                 .register(mobile, password)
-                .subscribe(new RxSubscriber<ResultEntity<PatientBean>>(mLoginRegisterView.getActivity()) {
+                .subscribe(new RxSubscriber<ResponseEntity<PatientBean>>(mLoginRegisterView.getActivity()) {
                     @Override
-                    protected void _onNext(ResultEntity<PatientBean> patientBeanResultEntity) {
-                        int status = patientBeanResultEntity.getStatus();
+                    protected void _onNext(ResponseEntity<PatientBean> patientBeanResponseEntity) {
+                        int status = patientBeanResponseEntity.getStatus();
                         if (status == ApiConstant.SUCCESS) {
-                            mLoginRegisterView.registerSuccess(patientBeanResultEntity.getData());
+                            mLoginRegisterView.registerSuccess(patientBeanResponseEntity.getData());
                         } else {
-                            mLoginRegisterView.registerError(patientBeanResultEntity.getMsg());
+                            mLoginRegisterView.registerError(patientBeanResponseEntity.getMsg());
                         }
                     }
 

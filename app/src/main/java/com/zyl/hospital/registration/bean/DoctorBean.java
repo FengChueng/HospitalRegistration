@@ -1,5 +1,7 @@
 package com.zyl.hospital.registration.bean;
 
+import java.util.List;
+
 public class DoctorBean extends BaseBean{
 
 	/**
@@ -19,9 +21,9 @@ public class DoctorBean extends BaseBean{
 	private int level;/*{@link com.zyl.utils.Constant;}*/
 	private int orderCount;//被预约次数
 
-//	private List<DoctorSchedule> doctorSchedules;
+	private List<DoctorSchedule> doctorSchedules;
 	
-//	private List<Appointment> appointments;
+	private List<Appointment> appointments;
 
 	public DoctorBean() {
 	}
@@ -123,20 +125,20 @@ public class DoctorBean extends BaseBean{
 		this.orderCount = orderCount;
 	}
 
-//	public List<DoctorSchedule> getDoctorSchedules() {
-//		return doctorSchedules;
-//	}
-//
-//	public void setDoctorSchedules(List<DoctorSchedule> doctorSchedules) {
-//		this.doctorSchedules = doctorSchedules;
-//	}
-//
-//	public List<Appointment> getAppointments() {
-//		return appointments;
-//	}
-//
-//	public void setAppointments(List<Appointment> appointments) {
-//		this.appointments = appointments;
-//	}
+	public List<DoctorSchedule> getDoctorSchedules() {
+		return doctorSchedules;
+	}
+
+	public void setDoctorSchedules(List<DoctorSchedule> doctorSchedules) {
+		this.doctorSchedules = doctorSchedules;
+	}
+
+	public List<Appointment> getAppointments() {
+		return appointments;
+	}
+
+	public void setAppointments(List<Appointment> appointments) {
+		this.appointments = appointments;
+	}
 	
 }

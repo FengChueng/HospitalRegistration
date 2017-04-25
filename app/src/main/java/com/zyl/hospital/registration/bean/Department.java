@@ -1,6 +1,5 @@
 package com.zyl.hospital.registration.bean;
 
-import java.util.Set;
 import java.util.UUID;
 
 /**
@@ -19,7 +18,7 @@ public class Department extends BaseBean{
 	private String info;//简介
 	private long createDate;//成立时间
 	
-	private Set<DoctorBean> doctors;
+//	private Set<DoctorBean> doctors;
 	
 	public Department() {
 		deptId = UUID.randomUUID().toString();
@@ -61,11 +60,11 @@ public class Department extends BaseBean{
 		this.createDate = createDate;
 	}
 
-	public Set<DoctorBean> getDoctors() {
-		return doctors;
-	}
-
-	public void setDoctors(Set<DoctorBean> doctors) {
-		this.doctors = doctors;
-	}
+//	public Set<DoctorBean> getDoctors() {
+//		return doctors;
+//	}
+//
+//	public void setDoctors(Set<DoctorBean> doctors) {
+//		this.doctors = doctors;
+//	}
 }

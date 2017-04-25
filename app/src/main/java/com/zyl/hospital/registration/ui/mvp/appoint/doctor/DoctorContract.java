@@ -4,7 +4,7 @@ import com.zyl.hospital.registration.base.BaseModel;
 import com.zyl.hospital.registration.base.BasePresenter;
 import com.zyl.hospital.registration.base.BaseView;
 import com.zyl.hospital.registration.bean.DoctorBean;
-import com.zyl.hospital.registration.bean.ResultEntity;
+import com.zyl.hospital.registration.bean.ResponseEntity;
 
 import java.util.List;
 
@@ -24,6 +24,6 @@ public interface DoctorContract {
     }
 
     interface DoctorModel extends BaseModel{
-        Observable<ResultEntity<List<DoctorBean>>> getDeptList(String deptId, int page, int size);
+        Observable<ResponseEntity<List<DoctorBean>>> getDeptList(String deptId, int page, int size);
     }
 }

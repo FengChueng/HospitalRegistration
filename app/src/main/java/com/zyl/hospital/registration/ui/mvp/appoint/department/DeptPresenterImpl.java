@@ -1,7 +1,7 @@
 package com.zyl.hospital.registration.ui.mvp.appoint.department;
 
 import com.zyl.hospital.registration.bean.Department;
-import com.zyl.hospital.registration.bean.ResultEntity;
+import com.zyl.hospital.registration.bean.ResponseEntity;
 import com.zyl.hospital.registration.constants.ApiConstant;
 import com.zyl.hospital.registration.rx.RxSubscriber;
 
@@ -21,14 +21,14 @@ public class DeptPresenterImpl extends DeptContract.DeptPresenter {
 
     @Override
     void getDeptList(String hositalId,int page, int size) {
-        addSubscription(model.getDeptList(hositalId,page,size).subscribe(new RxSubscriber<ResultEntity<List<Department>>>(view.getActivity()) {
+        addSubscription(model.getDeptList(hositalId,page,size).subscribe(new RxSubscriber<ResponseEntity<List<Department>>>(view.getActivity()) {
             @Override
-            protected void _onNext(ResultEntity<List<Department>> listResultEntity) {
-                int status = listResultEntity.getStatus();
+            protected void _onNext(ResponseEntity<List<Department>> listResponseEntity) {
+                int status = listResponseEntity.getStatus();
                 if(status == ApiConstant.SUCCESS){
-                    view.getDeptListSucc(listResultEntity.getData());
+                    view.getDeptListSucc(listResponseEntity.getData());
                 }else{
-                    view.getDeptListError(listResultEntity.getMsg());
+                    view.getDeptListError(listResponseEntity.getMsg());
                 }
             }
 

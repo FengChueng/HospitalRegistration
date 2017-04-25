@@ -46,5 +46,6 @@
     <color name="slanted_72">#727272</color>
     <color name="slanted_4c">#4caf50</color>
     <color name="slanted_fb">#fbc02d</color>
+    <color name="dialog_loading_color">#A5DC86</color>
 
 </resources>

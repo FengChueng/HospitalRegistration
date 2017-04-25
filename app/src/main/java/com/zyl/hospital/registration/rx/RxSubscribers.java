@@ -4,6 +4,8 @@ import android.content.Context;
 
 import com.zyl.hospital.registration.App;
 import com.zyl.hospital.registration.R;
+import com.zyl.hospital.registration.bean.ResponseEntity;
+import com.zyl.hospital.registration.constants.ApiConstant;
 import com.zyl.hospital.registration.utils.NetWorkUtils;
 import com.zyl.hospital.registration.utils.ResourceUtils;
 import com.zyl.hospital.registration.widget.LoadingDialog;
@@ -11,26 +13,10 @@ import com.zyl.hospital.registration.widget.LoadingDialog;
 import rx.Subscriber;
 
 /**
- * des:订阅封装
- * Created by xsf
- * on 2016.09.10:16
+ * RxJava调度管理
+ * Created by qyh on2016/12/6.
  */
-
-/********************使用例子********************/
-/*_apiService.login(mobile, verifyCode)
-        .//省略
-        .subscribe(new RxSubscriber<User user>(mContext,false) {
-@Override
-public void _onNext(User user) {
-        // 处理user
-        }
-
-@Override
-public void _onError(String msg) {
-        ToastUtil.showShort(mActivity, msg);
-        });*/
-public abstract class RxSubscriber<T> extends Subscriber<T> {
-
+public abstract class RxSubscribers<T> extends Subscriber<ResponseEntity<T>>{
     private Context mContext;
     private String msg;
     private boolean showDialog=true;
@@ -45,15 +31,15 @@ public abstract class RxSubscriber<T> extends Subscriber<T> {
         this.showDialog= true;
     }
 
-    public RxSubscriber(Context context, String msg, boolean showDialog) {
+    public RxSubscribers(Context context, String msg, boolean showDialog) {
         this.mContext = context;
         this.msg = msg;
         this.showDialog=showDialog;
     }
-    public RxSubscriber(Context context) {
+    public RxSubscribers(Context context) {
         this(context, ResourceUtils.getString(R.string.loading),true);
     }
-    public RxSubscriber(Context context, boolean showDialog) {
+    public RxSubscribers(Context context, boolean showDialog) {
         this(context, ResourceUtils.getString(R.string.loading),showDialog);
     }
 
@@ -70,19 +56,33 @@ public abstract class RxSubscriber<T> extends Subscriber<T> {
                 LoadingDialog.loadSweetDialog(mContext,msg);
             } catch (Exception e) {
                 e.printStackTrace();
-           }
+            }
         }
     }
 
 
     @Override
-    public void onNext(T t) {
+    public void onNext(ResponseEntity<T> t) {
         if (showDialog)
             LoadingDialog.cancleSweetDialog();
-        _onNext(t);
+        if(t == null){//网络连接异常
+            _onError(ResourceUtils.getString(R.string.net_error));
+            return;
+        }
+        //有网络请求
+        if (ApiConstant.SUCCESS==t.getStatus()) {//数据返回成功
+            if(t.getData() != null){
+                _onNext(t.getData());
+            }else{
+                _noData("无数据");
+            }
+        }else if(ApiConstant.FIAL == t.getStatus()){
+            _onError(t.getMsg());
+        }
     }
     @Override
     public void onError(Throwable e) {
+        //无网络请求
         if (showDialog)
             LoadingDialog.cancleSweetDialog();
         e.printStackTrace();
@@ -100,8 +100,21 @@ public abstract class RxSubscriber<T> extends Subscriber<T> {
         }
     }
 
+    /**
+     * 数据返回成功,有数据
+     * @param t
+     */
     protected abstract void _onNext(T t);
 
+    /**
+     * 异常
+     * @param message
+     */
     protected abstract void _onError(String message);
 
+    /**
+     * 无数据
+     * @param msg
+     */
+    protected abstract void _noData(String msg);
 }

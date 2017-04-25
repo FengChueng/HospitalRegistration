@@ -14,7 +14,7 @@ import com.zyl.hospital.registration.adapter.DoctorAdapter;
 import com.zyl.hospital.registration.base.MvpBaseActivity;
 import com.zyl.hospital.registration.bean.DoctorBean;
 import com.zyl.hospital.registration.constants.AppConstants;
-import com.zyl.hospital.registration.ui.SettingActivity;
+import com.zyl.hospital.registration.ui.mvp.appoint.schedule.DoctorScheduleActivity;
 import com.zyl.hospital.registration.utils.RouterUtils;
 import com.zyl.hospital.registration.utils.ToastUtils;
 
@@ -61,8 +61,8 @@ public class DoctorActivity extends MvpBaseActivity<DoctorContract.DoctorPresent
             public void SimpleOnItemClick(BaseQuickAdapter baseQuickAdapter, View view, int position) {
                 DoctorBean doctorBean = (DoctorBean) baseQuickAdapter.getItem(position);
                 Bundle bundle = new Bundle();
-                bundle.putString(AppConstants.KEY_DEPT_ID, doctorBean.getDoctorAccount());
-                RouterUtils.gotoNext(getActivity(), SettingActivity.class, bundle);
+                bundle.putString(AppConstants.KEY_DOCTOR_ID, doctorBean.getDoctorAccount());
+                RouterUtils.gotoNext(getActivity(), DoctorScheduleActivity.class, bundle);
             }
         });
     }

@@ -2,7 +2,7 @@ package com.zyl.hospital.registration.ui.mvp.main;
 
 
 import com.zyl.hospital.registration.bean.PatientBean;
-import com.zyl.hospital.registration.bean.ResultEntity;
+import com.zyl.hospital.registration.bean.ResponseEntity;
 import com.zyl.hospital.registration.constants.ApiConstant;
 import com.zyl.hospital.registration.http.api.Api;
 import com.zyl.hospital.registration.http.api.ApiService;
@@ -16,26 +16,26 @@ import rx.Observable;
 
 public class LoginRegisterModelImpl implements MainContract.LoginRegisterModel {
     @Override
-    public Observable<ResultEntity<?>> login(String mobile, String password,int role) {
+    public Observable<ResponseEntity<?>> login(String mobile, String password, int role) {
         if (role == ApiConstant.DOCTOR) {
             return Api.getInstance()
                     .createService(ApiService.class)
                     .patientlogin(mobile, password)
-                    .compose(RxSchedulers.<ResultEntity<?>>io_main());
+                    .compose(RxSchedulers.<ResponseEntity<?>>io_main());
         } else {
             return Api.getInstance()
                     .createService(ApiService.class)
                     .doctorlogin(mobile, password)
-                    .compose(RxSchedulers.<ResultEntity<?>>io_main());
+                    .compose(RxSchedulers.<ResponseEntity<?>>io_main());
         }
     }
 
     @Override
-    public Observable<ResultEntity<PatientBean>> register(String mobile, String password) {
+    public Observable<ResponseEntity<PatientBean>> register(String mobile, String password) {
         return Api
                 .getInstance()
                 .createService(ApiService.class)
                 .patientregister(mobile, password)
-                .compose(RxSchedulers.<ResultEntity<PatientBean>>io_main());
+                .compose(RxSchedulers.<ResponseEntity<PatientBean>>io_main());
     }
 }

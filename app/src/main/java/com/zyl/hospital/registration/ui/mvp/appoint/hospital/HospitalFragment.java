@@ -39,6 +39,7 @@ public class HospitalFragment extends MvpBaseFragment<HospitalContract.HospitalP
 
     private int page = 0;
     private int size = 30;
+    private boolean refresh = true;
     private ArrayList<Hospital> hospitalArrayList;
 
     public static HospitalFragment newInstance(Integer type) {
@@ -66,32 +67,6 @@ public class HospitalFragment extends MvpBaseFragment<HospitalContract.HospitalP
 //            public void onLoadMoreRequested() {
 //                page++;
 //                mPresenter.getHospitalList(page, size);
-//            }
-//        });
-
-//        mRecyclerView.addOnItemTouchListener(new SimpleClickListener() {
-//            @Override
-//            public void onItemClick(BaseQuickAdapter baseQuickAdapter, View view, int position) {
-//                Hospital hospital = (Hospital) adapter.getItem(position);
-//                LogUtils.e("position:"+position+"hospital:"+hospital.toString());
-//                Bundle bundle = new Bundle();
-//                bundle.putString(AppConstants.KEY_HOSPITAL_ID, hospital.getHospitalId());
-//                RouterUtils.gotoNext(getActivity(), DeptActivity.class, bundle);
-//            }
-//
-//            @Override
-//            public void onItemLongClick(BaseQuickAdapter baseQuickAdapter, View view, int i) {
-//
-//            }
-//
-//            @Override
-//            public void onItemChildClick(BaseQuickAdapter baseQuickAdapter, View view, int i) {
-//
-//            }
-//
-//            @Override
-//            public void onItemChildLongClick(BaseQuickAdapter baseQuickAdapter, View view, int i) {
-//
 //            }
 //        });
 
@@ -131,12 +106,17 @@ public class HospitalFragment extends MvpBaseFragment<HospitalContract.HospitalP
     @Override
     public void getHospitalSucc(List<Hospital> hospitals) {
         hospitalArrayList.addAll(hospitals);
-        adapter.addData(hospitalArrayList);
+        if(refresh){
+            adapter.setNewData(hospitals);
+        }else{
+            adapter.addData(hospitalArrayList);
+        }
     }
 
     @Override
     public void getHospitalError(String msg) {
         ToastUtils.showMetrailToast(getActivity(), "加载失败");
+        adapter.loadMoreFail();
     }
 
     @Override

@@ -3,7 +3,7 @@ package com.zyl.hospital.registration.ui.mvp.user.login.next;
 import android.text.TextUtils;
 
 import com.zyl.hospital.registration.bean.PatientBean;
-import com.zyl.hospital.registration.bean.ResultEntity;
+import com.zyl.hospital.registration.bean.ResponseEntity;
 import com.zyl.hospital.registration.constants.ApiConstant;
 import com.zyl.hospital.registration.rx.RxSubscriber;
 
@@ -45,9 +45,9 @@ public class CompleteInfoPresenterImpl extends CompleteInfoContract.CompleteInfo
         if (checkInput(userId,name,sex,birthday)){
             addSubscription(model
                     .completeinfo(userId,name,sex,birthday)
-                    .subscribe(new RxSubscriber<ResultEntity<PatientBean>>(view.getActivity()) {
+                    .subscribe(new RxSubscriber<ResponseEntity<PatientBean>>(view.getActivity()) {
                         @Override
-                        protected void _onNext(ResultEntity<PatientBean> t) {
+                        protected void _onNext(ResponseEntity<PatientBean> t) {
                             int status = t.getStatus();
                             if(status == ApiConstant.SUCCESS){
                                 view.completeinfoSucc(t.getData());

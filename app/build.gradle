@@ -48,31 +48,26 @@ ext {
 }
 
 dependencies {
-    //Unit Test
+    //---------------------------------------
+    //---------------Unit Test---------------
+    //---------------------------------------
     testCompile 'junit:junit:4.12'
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'junit:junit:4.12'
-    //base
+    //---------------------------------------
+    //---------------Support包---------------
+    //---------------------------------------
     compile "com.android.support:appcompat-v7:${supportVersion}"
     compile "com.android.support:recyclerview-v7:${supportVersion}"
     compile "com.android.support:gridlayout-v7:${supportVersion}"
     compile "com.android.support:cardview-v7:${supportVersion}"
     compile "com.android.support:design:${supportVersion}"
-    //gson解析
-    compile 'com.google.code.gson:gson:2.8.0'
-    //图片加载框架 Glide
-    compile 'com.github.bumptech.glide:glide:3.7.0'
-    //butterknife
-    compile 'com.jakewharton:butterknife:8.4.0'
-    apt 'com.jakewharton:butterknife-compiler:8.4.0'
-    //autolayout
-    compile 'com.zhy:autolayout:1.4.1'
-    //--------------------工具-------------------------------
-    compile 'org.projectlombok:lombok:1.16.10'
-
-
-
-    //ui 控件
+    //---------------------------------------
+    //----------------UI控件-----------------
+    //---------------------------------------
+    //dialog
+    compile 'cn.pedant.sweetalert:library:1.3'
+    //标签
     compile 'com.haozhang.libary:android-slanted-textview:1.2'
     compile ('com.roughike:bottom-bar:2.3.1'){
         exclude group: 'com.android.support', module: 'appcompat-v7'
@@ -95,33 +90,47 @@ dependencies {
         exclude group: 'com.android.support', module: 'design'
         exclude group: 'com.android.support', module: 'gridlayout-v7'
     }
-    compile 'cn.finalteam:galleryfinal:1.4.3'
-
+    //---------------------------------------
+    //---------------帮助工具----------------
+    //---------------------------------------
+    //gson解析
+    compile 'com.google.code.gson:gson:2.8.0'
+    //图片加载框架 Glide
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    //AutoLayout
+    compile 'com.zhy:autolayout:1.4.1'
     //adapterHelper
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.6.1'
-//    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:v1.9.7'
-    //retrofit2 + rxjava1 + rxandroid
+    //6.0动态权限 基于rxjava
+    compile 'com.tbruyelle.rxpermissions:rxpermissions:0.9.1@aar'
+    //LomBok
+    compile 'org.projectlombok:lombok:1.16.10'
+    //butterKnife
+    compile 'com.jakewharton:butterknife:8.4.0'
+    apt 'com.jakewharton:butterknife-compiler:8.4.0'
+    //---------------------------------------
+    //----retrofit2 + rxJava1 + rxAndroid----
+    //---------------------------------------
     compile 'io.reactivex:rxjava:1.2.6'
     compile 'io.reactivex:rxandroid:1.2.1'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
-    //6.0动态权限 基于rxjava
-    compile 'com.tbruyelle.rxpermissions:rxpermissions:0.9.1@aar'
-    //okhttp + logging
+    //---------------------------------------
+    //-----------okHttp + logging------------
+    //---------------------------------------
     compile 'com.squareup.okhttp3:okhttp:3.6.0'
     compile 'com.squareup.okhttp3:logging-interceptor:3.6.0'
-    //aspectjrt aop
+    //---------------------------------------
+    //-----------aspectj aop-----------------
+    //---------------------------------------
+    //aspectj aop
     compile 'org.aspectj:aspectjrt:1.8.9'
     compile project(':annotation')
-    //okhttputils
-    compile 'com.zhy:okhttputils:2.6.2'
-
 }
 
 //configurations {
 //    all*.exclude group: 'com.google.code.gson'
 //    all*.exclude group: 'com.squareup.okhttp3', module: 'okhttp'
 //}
-
 apply plugin: com.app.plugin.AspectjPlugin

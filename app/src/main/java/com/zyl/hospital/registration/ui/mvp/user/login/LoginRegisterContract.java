@@ -9,7 +9,7 @@ import com.zyl.hospital.registration.base.BasePresenter;
 import com.zyl.hospital.registration.base.BaseView;
 import com.zyl.hospital.registration.bean.BaseBean;
 import com.zyl.hospital.registration.bean.PatientBean;
-import com.zyl.hospital.registration.bean.ResultEntity;
+import com.zyl.hospital.registration.bean.ResponseEntity;
 
 import rx.Observable;
 
@@ -32,8 +32,8 @@ public interface LoginRegisterContract {
     }
 
     interface LoginRegisterModel extends BaseModel {
-        Observable<ResultEntity<?>> login( String mobile, String password,int role);
+        Observable<ResponseEntity<?>> login(String mobile, String password, int role);
 
-        Observable<ResultEntity<PatientBean>> register(String mobile, String password);
+        Observable<ResponseEntity<PatientBean>> register(String mobile, String password);
     }
 }

@@ -8,9 +8,9 @@ import android.view.View;
 import com.annotation.aspect.SingleClick;
 import com.zyl.hospital.registration.R;
 import com.zyl.hospital.registration.base.MvpBaseActivity;
-import com.zyl.hospital.registration.bean.ResultEntity;
+import com.zyl.hospital.registration.bean.ResponseEntity;
 
-public class UserInfoActivity extends MvpBaseActivity<UserContract.UserPresenter> implements UserContract.UserView{
+public class UserInfoActivity extends MvpBaseActivity<UserInfoContract.UserPresenter> implements UserInfoContract.UserView{
     //extends MvpBaseActivity
     @Override
     protected void initParams(Bundle params) {
@@ -28,13 +28,13 @@ public class UserInfoActivity extends MvpBaseActivity<UserContract.UserPresenter
     }
 
     @Override
-    protected UserContract.UserPresenter createPresenter() {
+    protected UserInfoContract.UserPresenter createPresenter() {
         return new UserPresenterImpl(this);
     }
 
-    //implements UserContract.UserView
+    //implements UserInfoContract.UserView
     @Override
-    public void loadUserInfo(ResultEntity<?> userEntity) {
+    public void loadUserInfo(ResponseEntity<?> userEntity) {
 
     }
 

@@ -10,7 +10,7 @@ import com.zyl.hospital.registration.base.BaseModel;
 import com.zyl.hospital.registration.base.BasePresenter;
 import com.zyl.hospital.registration.base.BaseView;
 import com.zyl.hospital.registration.bean.PatientBean;
-import com.zyl.hospital.registration.bean.ResultEntity;
+import com.zyl.hospital.registration.bean.ResponseEntity;
 
 import rx.Observable;
 
@@ -29,7 +29,7 @@ public interface CompleteInfoContract {
     }
 
     interface CompleteInfoModel extends BaseModel {
-        Observable<ResultEntity<PatientBean>> completeinfo(String account, String name, int sex, long birthday);
+        Observable<ResponseEntity<PatientBean>> completeinfo(String account, String name, int sex, long birthday);
 
         PatientBean getFromLocal(Context context);
     }

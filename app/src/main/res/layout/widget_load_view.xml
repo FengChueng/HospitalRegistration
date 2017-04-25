@@ -24,7 +24,7 @@
         android:scaleX="1.5"
         android:scaleY="1.5"
         android:textSize="16sp"
-        android:text="让看病更简单"
+        android:text="为了世界和平"
         android:textColor="@color/load_blue"
         />
 

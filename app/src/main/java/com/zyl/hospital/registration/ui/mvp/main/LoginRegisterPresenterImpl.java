@@ -1,7 +1,7 @@
 package com.zyl.hospital.registration.ui.mvp.main;
 
 import com.zyl.hospital.registration.bean.PatientBean;
-import com.zyl.hospital.registration.bean.ResultEntity;
+import com.zyl.hospital.registration.bean.ResponseEntity;
 import com.zyl.hospital.registration.rx.RxSubscriber;
 
 /**
@@ -19,14 +19,11 @@ public class LoginRegisterPresenterImpl extends MainContract.MainPresenter {
     void login(String mobile, String password,int role) {
         addSubscription(mLoginModel
                 .login(mobile,password,role)
-                .subscribe(new RxSubscriber<ResultEntity<?>>(mLoginRegisterView.getActivity()) {
+                .subscribe(new RxSubscriber<ResponseEntity<?>>(mLoginRegisterView.getActivity()) {
                     @Override
-                    protected void _onNext(ResultEntity<?> patientBeanResultEntity) {
+                    protected void _onNext(ResponseEntity<?> patientBeanResponseEntity) {
 
-
-
-
-                        mLoginRegisterView.loginSuccess(patientBeanResultEntity);
+                        mLoginRegisterView.loginSuccess(patientBeanResponseEntity);
                     }
 
                     @Override
@@ -40,10 +37,10 @@ public class LoginRegisterPresenterImpl extends MainContract.MainPresenter {
     void register(String mobile, String password) {
         addSubscription(mLoginModel
                 .register(mobile,password)
-                .subscribe(new RxSubscriber<ResultEntity<PatientBean>>(mLoginRegisterView.getActivity()) {
+                .subscribe(new RxSubscriber<ResponseEntity<PatientBean>>(mLoginRegisterView.getActivity()) {
             @Override
-            protected void _onNext(ResultEntity<PatientBean> patientBeanResultEntity) {
-                mLoginRegisterView.registerSuccess(patientBeanResultEntity);
+            protected void _onNext(ResponseEntity<PatientBean> patientBeanResponseEntity) {
+                mLoginRegisterView.registerSuccess(patientBeanResponseEntity);
             }
 
             @Override

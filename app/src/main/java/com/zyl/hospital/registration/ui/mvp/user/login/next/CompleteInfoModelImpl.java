@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.google.gson.Gson;
 import com.zyl.hospital.registration.bean.PatientBean;
-import com.zyl.hospital.registration.bean.ResultEntity;
+import com.zyl.hospital.registration.bean.ResponseEntity;
 import com.zyl.hospital.registration.constants.AppConfig;
 import com.zyl.hospital.registration.http.api.Api;
 import com.zyl.hospital.registration.http.api.ApiService;
@@ -17,7 +17,7 @@ import rx.Observable;
 public class CompleteInfoModelImpl implements CompleteInfoContract.CompleteInfoModel{
 
     @Override
-    public Observable<ResultEntity<PatientBean>> completeinfo(String account,String name, int sex, long birthday) {
+    public Observable<ResponseEntity<PatientBean>> completeinfo(String account, String name, int sex, long birthday) {
         if(AppConfig.useMock){
             return null;
         }
@@ -25,7 +25,7 @@ public class CompleteInfoModelImpl implements CompleteInfoContract.CompleteInfoM
                 .getInstance()
                 .createService(ApiService.class)
                 .modifyPatientInfo(account,null,null,name,sex,birthday,"",account)
-                .compose(RxSchedulers.<ResultEntity<PatientBean>>io_main());
+                .compose(RxSchedulers.<ResponseEntity<PatientBean>>io_main());
     }
 
     @Override
