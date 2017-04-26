@@ -19,17 +19,17 @@ public class DoctorSchedulePresenterImpl extends DoctorScheduleContract.DoctorSc
         addSubscription(modle.getDoctorSchedule(doctorId,page,size).subscribe(new RxSubscribers<DoctorBean>(view.getActivity()) {
             @Override
             protected void _onNext(DoctorBean doctorBean) {
-
+                view.getDoctorScheduleSucc(doctorBean);
             }
 
             @Override
             protected void _onError(String message) {
-
+                view.getDoctorScheduleError(message);
             }
 
             @Override
             protected void _noData(String msg) {
-
+                view.noData(msg);
             }
         }));
     }

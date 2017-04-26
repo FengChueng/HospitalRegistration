@@ -3,7 +3,6 @@ package com.zyl.hospital.registration.ui.mvp.appoint.schedule;
 import com.zyl.hospital.registration.base.BasePresenter;
 import com.zyl.hospital.registration.base.BaseView;
 import com.zyl.hospital.registration.bean.DoctorBean;
-import com.zyl.hospital.registration.bean.DoctorSchedule;
 import com.zyl.hospital.registration.bean.ResponseEntity;
 
 import rx.Observable;
@@ -17,7 +16,7 @@ public interface DoctorScheduleContract {
     }
 
     interface DoctorScheduleView extends BaseView{
-        void getDoctorScheduleSucc(DoctorSchedule doctorSchedule);
+        void getDoctorScheduleSucc(DoctorBean doctorSchedule);
         void getDoctorScheduleError(String msg);
         void noData(String msg);
     }
