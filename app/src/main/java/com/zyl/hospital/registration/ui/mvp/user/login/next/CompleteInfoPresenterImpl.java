@@ -39,12 +39,12 @@ public class CompleteInfoPresenterImpl extends CompleteInfoContract.CompleteInfo
     }
 
     @Override
-    void completeinfo(String name, final int sex, long birthday) {
-        PatientBean patientBean = model.getFromLocal(view.getActivity());
-        String userId = patientBean.getMobilePhone();
-        if (checkInput(userId,name,sex,birthday)){
+    void completeinfo(String account,String name, final int sex, long birthday) {
+        //PatientBean patientBean = model.getFromLocal(view.getActivity());
+//        String userId = patientBean.getMobilePhone();
+        if (checkInput(account,name,sex,birthday)){
             addSubscription(model
-                    .completeinfo(userId,name,sex,birthday)
+                    .completeinfo(account,name,sex,birthday)
                     .subscribe(new RxSubscriber<ResponseEntity<PatientBean>>(view.getActivity()) {
                         @Override
                         protected void _onNext(ResponseEntity<PatientBean> t) {

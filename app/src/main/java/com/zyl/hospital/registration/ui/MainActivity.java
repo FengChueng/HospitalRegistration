@@ -191,14 +191,15 @@ public class MainActivity extends BaseActivity {
         if (savedInstanceState != null) {
             index = savedInstanceState.getInt(FRAGMENT_TAG_KEY);
             newsFragment = (NewsFragment) fragmentManager.findFragmentByTag(FRAGMENT_TAGS[0]);
+            hospitalFragment = (HospitalFragment) fragmentManager.findFragmentByTag(FRAGMENT_TAGS[1]);
             switch (role){//根据不同角色加载不同界面
                 case ApiConstant.DOCTOR:
-                    appointmentFragmentDoctor = (AppointmentManagerFragmentDoctor) fragmentManager.findFragmentByTag(FRAGMENT_TAGS[1]);
-                    personalFragmentDoctor = (PersonalFragmentDoctor) fragmentManager.findFragmentByTag(FRAGMENT_TAGS[2]);
+                    appointmentFragmentDoctor = (AppointmentManagerFragmentDoctor) fragmentManager.findFragmentByTag(FRAGMENT_TAGS[2]);
+                    personalFragmentDoctor = (PersonalFragmentDoctor) fragmentManager.findFragmentByTag(FRAGMENT_TAGS[3]);
                     break;
                 case ApiConstant.PATIENT:
-                    appointmentFragmentPatient = (AppointmentManagerFragmentPatient) fragmentManager.findFragmentByTag(FRAGMENT_TAGS[1]);
-                    personalFragmentPatient = (PersonalFragmentPatient) fragmentManager.findFragmentByTag(FRAGMENT_TAGS[2]);
+                    appointmentFragmentPatient = (AppointmentManagerFragmentPatient) fragmentManager.findFragmentByTag(FRAGMENT_TAGS[2]);
+                    personalFragmentPatient = (PersonalFragmentPatient) fragmentManager.findFragmentByTag(FRAGMENT_TAGS[3]);
                     break;
             }
         }

@@ -7,6 +7,7 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.haozhang.lib.SlantedTextView;
 import com.zyl.hospital.registration.R;
 import com.zyl.hospital.registration.bean.DoctorBean;
+import com.zyl.hospital.registration.bean.DoctorSchedule;
 import com.zyl.hospital.registration.constants.ApiConstant;
 import com.zyl.hospital.registration.utils.ImageLoader;
 import com.zyl.hospital.registration.widget.CircleImageView;
@@ -29,16 +30,20 @@ public class DoctorAdapter extends BaseQuickAdapter<DoctorBean,BaseViewHolder> {
 
     @Override
     protected void convert(BaseViewHolder helper, DoctorBean item) {
+        boolean no_full_schedule = false;
+        List<DoctorSchedule> doctorSchedules = item.getDoctorSchedules();
+        for (DoctorSchedule doctorSchedule : doctorSchedules) {
+            if(ApiConstant.DOCTOR_SCHEDULE_POSSIBLE == doctorSchedule.getStatus()){
+                no_full_schedule = true;
+                break;
+            }
+        }
         helper.setText(R.id.doctor_name,item.getRealName())
                 .setText(R.id.dept_name, deptName)
                 .setText(R.id.doctor_info,item.getInfo());
-
-        int resId = 1==1?R.mipmap.appoint:R.mipmap.appoint_manager;
-
         ((SlantedTextView)helper.getView(R.id.slv_right)).setText(getLevel(item.getLevel()));
 
-
-        ((CircleImageView)helper.getView(R.id.can_appointment)).setImageResource(resId);
+        ((CircleImageView)helper.getView(R.id.can_appointment)).setImageResource(no_full_schedule?R.mipmap.ic_have:R.mipmap.ic_none);
 
         ImageLoader
                 .getIns(mContext)

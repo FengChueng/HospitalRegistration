@@ -84,7 +84,7 @@ public class DoctorActivity extends MvpBaseActivity<DoctorContract.DoctorPresent
     @Override
     public void getDoctorListError(String msg) {
         ToastUtils.showMetrailToast(this,msg);
-        //mPresenter.getDoctor(deptId,page,size);
+        mPresenter.getDoctor(deptId,page,size);
     }
 
     @Override

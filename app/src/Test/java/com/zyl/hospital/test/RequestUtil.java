@@ -2,6 +2,8 @@ package com.zyl.hospital.test;
 
 import android.text.TextUtils;
 
+import com.zyl.hospital.registration.utils.LogUtils;
+
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
@@ -30,6 +32,7 @@ public class RequestUtil {
             urlConnection.setReadTimeout(30*1000);
             urlConnection.setRequestMethod("GET");
             urlConnection.connect();
+            LogUtils.i(urlConnection.getResponseCode());
             if(urlConnection.getResponseCode()==200){//请求成功
                 InputStream inputStream = urlConnection.getInputStream();
                 ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -40,15 +43,17 @@ public class RequestUtil {
                 }
                 out.close();
                 inputStream.close();
-                System.out.println("jsong:\n"+new String(out.toByteArray()));
+                System.out.println("json:\n"+new String(out.toByteArray()));
+                LogUtils.i(new String(out.toByteArray()));
                 return new String(out.toByteArray());
             }
         } catch (MalformedURLException e) {
             e.printStackTrace();
+            LogUtils.e(e.getMessage());
         } catch (ProtocolException e) {
-            e.printStackTrace();
+            LogUtils.e(e.getMessage());
         } catch (IOException e) {
-            e.printStackTrace();
+            LogUtils.e(e.getMessage());
         }
         return  "";
     }

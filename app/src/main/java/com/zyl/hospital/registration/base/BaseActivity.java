@@ -188,6 +188,7 @@ public abstract class BaseActivity extends SlideBackActivity {
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayShowTitleEnabled(false);
+            actionBar.setDisplayHomeAsUpEnabled(false);
         }
 
         return toolbar;

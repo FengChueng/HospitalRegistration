@@ -40,11 +40,11 @@
 
     <!-- 设置界面TextView的样式 -->
     <style name="setting_item_textview_style">
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">15sp</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:gravity">center</item>
-        <item name="android:padding">20dp</item>
+        <item name="android:padding">18dp</item>
     </style>
 
     <style name="bar_text_style">

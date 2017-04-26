@@ -83,17 +83,16 @@ public interface ApiService {
             @Field("account") String account,
             @Field("pwd") String password);
 
-    @POST(ApiConstant.modifypatientinfo)
-    @FormUrlEncoded
+    @GET(ApiConstant.modifypatientinfo)
     Observable<ResponseEntity<PatientBean>> modifyPatientInfo(
-            @Field(value = "account") String account,
-            @Field(value = "oldPwd") String oldPwd,
-            @Field(value = "newPwd") String newPwd,
-            @Field(value = "realName") String realName,
-            @Field(value = "sex") int sex,
-            @Field(value = "birthDay") long birthDay,
-            @Field(value = "portraint") String portraint,
-            @Field(value = "mobilePhone") String mobilePhone);
+            @Query(value = "account") String account,
+            @Query(value = "oldPwd") String oldPwd,
+            @Query(value = "newPwd") String newPwd,
+            @Query(value = "realName") String realName,
+            @Query(value = "sex") Integer sex,
+            @Query(value = "birthDay") Long birthDay,
+            @Query(value = "portraint") String portraint,
+            @Query(value = "mobilePhone") String mobilePhone);
 
 
     //--------------医生日程数据请求

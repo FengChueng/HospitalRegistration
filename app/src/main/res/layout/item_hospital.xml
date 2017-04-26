@@ -7,7 +7,8 @@
     android:layout_height="wrap_content">
    <com.zyl.hospital.registration.widget.CircleImageView
        android:id="@+id/img"
-       android:padding="30dp"
+       android:padding="20dp"
+       android:layout_margin="10dp"
        android:layout_width="80dp"
        android:layout_height="80dp" />
    

@@ -67,4 +67,6 @@ public interface ApiConstant {
     String queryAllByDidAndStatus = "/appointment/queryByDoctorIdAndStatus/";
     String modifypatientinfo = "/patient/modifyPatientInfo/";
     String queryAllDoctorById = "/doctor/queryDoctorsByDeptId/";
+
+    String queryDoctorById = "/doctor/queryDoctorByDoctorAccount/";
 }

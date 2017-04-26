@@ -3,6 +3,7 @@ package com.zyl.hospital.registration.ui.mvp.user.login.next;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
@@ -31,8 +32,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-import static android.R.attr.data;
 import static com.zyl.hospital.registration.R.id.register_next_name_auto;
+import static com.zyl.hospital.registration.R.string.sex;
 
 
 public class CompleteInfoActivity extends MvpBaseActivity<CompleteInfoContract.CompleteInfoPresenter> implements CompleteInfoContract.CompleteInfoView,DatePickerDialog.OnDateSetListener{
@@ -44,13 +45,13 @@ public class CompleteInfoActivity extends MvpBaseActivity<CompleteInfoContract.C
     @BindView(R.id.register_next_sub)
     TextView registerNextSub;
     @BindView(register_next_name_auto)
-    AutoCompleteTextView registerNextPhoneAutocomplete;
+    AutoCompleteTextView registerNextNameAutocomplete;
     private String userId = "";
 
     MaterialDialog progress;
     private PatientBean patientBean;
     private int sexParam;
-    private long birtyDay;
+    private long birthday;
 
     private List<String> getSexList() {
         List<String> sexlist = new ArrayList<>();
@@ -70,7 +71,7 @@ public class CompleteInfoActivity extends MvpBaseActivity<CompleteInfoContract.C
                         sexParam = which == 0? ApiConstant.SEX_MALE:ApiConstant.SEX_FEMALE;
                         return true;
                     }
-                }).positiveText(R.string.sex)
+                }).positiveText(sex)
                 .show();
     }
 
@@ -130,7 +131,7 @@ public class CompleteInfoActivity extends MvpBaseActivity<CompleteInfoContract.C
 
     @OnClick({R.id.register_next_sex, R.id.register_next_birthday, R.id.register_next_sub})
     public void onClick(View view) {
-        String name = registerNextPhoneAutocomplete.getText().toString();
+        String name = registerNextNameAutocomplete.getText().toString();
         switch (view.getId()) {
             case R.id.register_next_sex:
                 selectSex();
@@ -139,7 +140,23 @@ public class CompleteInfoActivity extends MvpBaseActivity<CompleteInfoContract.C
                 selectBirthDay();
                 break;
             case R.id.register_next_sub:
-                mPresenter.completeinfo(name,sexParam,birtyDay);
+                if (TextUtils.isEmpty(name)) {
+                    registerNextNameAutocomplete.setFocusable(true);
+                    ToastUtils.showMetrailToast(this,"请输入姓名");
+                    return;
+                }
+                if (sex == 0) {
+                    registerNextSex.setFocusable(true);
+                    ToastUtils.showMetrailToast(this,"请选择性别");
+                    return;
+                }
+
+                if(birthday == 0){
+                    registerNextBirthday.setFocusable(true);
+                    ToastUtils.showMetrailToast(this,"请选择生日");
+                    return;
+                }
+                mPresenter.completeinfo(patientBean.getPatientAccount(),name,sexParam, birthday);
                 break;
         }
     }
@@ -161,7 +178,7 @@ public class CompleteInfoActivity extends MvpBaseActivity<CompleteInfoContract.C
         cal.set(Calendar.YEAR, year);
         cal.set(Calendar.MONTH, monthOfYear);
         cal.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-        birtyDay = cal.getTimeInMillis();
-        registerNextBirthday.setText("Date set: " + DateFormat.getDateFormat(this).format(cal.getTime()));
+        birthday = cal.getTimeInMillis();
+        registerNextBirthday.setText(DateFormat.getDateFormat(this).format(cal.getTime()));
     }
 }

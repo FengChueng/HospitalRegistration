@@ -23,30 +23,33 @@
        android:padding="10dp"
        android:gravity="center_vertical"
        >
-
-      <TextView
-          android:id="@+id/doctor_name"
+      <LinearLayout
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:textSize="18sp"
-          android:gravity="center_vertical"
-          android:text="name"
-          android:maxLines="1"
-          android:ellipsize="end"
-          android:layout_marginTop="5dp"
-          />
-
-      <TextView
-          android:id="@+id/dept_name"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:textSize="16sp"
-          android:gravity="center_vertical"
-          android:text="科室"
-          android:maxLines="1"
-          android:ellipsize="end"
+          android:orientation="horizontal"
           android:layout_marginTop="15dp"
-          />
+          android:gravity="center_vertical"
+          >
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:textSize="18sp"
+             android:gravity="center_vertical"
+             android:text="时间:"
+             android:maxLines="1"
+             android:ellipsize="end"
+             />
+         <TextView
+             android:id="@+id/schedule_date"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:textSize="16sp"
+             android:gravity="center_vertical"
+             android:text="绵阳师范医务室"
+             android:maxLines="1"
+             android:ellipsize="end"
+             />
+      </LinearLayout>
 
       <LinearLayout
           android:layout_width="match_parent"
@@ -60,12 +63,41 @@
              android:layout_height="wrap_content"
              android:textSize="16sp"
              android:gravity="center_vertical"
-             android:text="科室"
+             android:text="科室:"
              android:maxLines="1"
              android:ellipsize="end"
              />
          <TextView
-             android:id="@+id/doctor_info"
+             android:id="@+id/dept_name"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:textSize="16sp"
+             android:gravity="center_vertical"
+             android:text="口腔科"
+             android:maxLines="1"
+             android:ellipsize="end"
+             />
+
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          android:layout_marginTop="15dp"
+          android:gravity="center_vertical"
+          >
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:textSize="16sp"
+             android:gravity="center_vertical"
+             android:text="地点:"
+             android:maxLines="1"
+             android:ellipsize="end"
+             />
+         <TextView
+             android:id="@+id/location"
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
              android:textSize="16sp"
@@ -87,18 +119,20 @@
     app:slantedMode="right"
     app:slantedLength="@dimen/text_slanted"
     app:slantedTextSize="10sp"
-    app:slantedText="专家"
+    app:slantedText="可预约"
     android:layout_alignTop="@+id/content_ll"
     android:layout_alignEnd="@+id/content_ll"
     />
 
-   <com.zyl.hospital.registration.widget.CircleImageView
-       android:id="@+id/can_appointment"
+   <Button
+       android:text="预约"
+       android:id="@+id/appointment_btn"
        android:padding="30dp"
-       android:layout_width="35dp"
-       android:layout_height="35dp"
+       android:layout_width="60dp"
+       android:layout_height="40dp"
        android:layout_centerVertical="true"
        android:layout_alignParentEnd="true"
        android:layout_marginEnd="40dp"
+       android:background="@drawable/appoint_button_bg"
        />
 </RelativeLayout>

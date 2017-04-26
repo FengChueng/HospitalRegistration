@@ -76,7 +76,7 @@ public abstract class BaseFragment extends Fragment {
         super.setUserVisibleHint(isVisibleToUser);
         this.mIsVisible = isVisibleToUser;
         if (mIsVisible) {
-            onVisibleToUser();
+            //onVisibleToUser();
         }
     }
 

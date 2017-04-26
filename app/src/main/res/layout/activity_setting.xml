@@ -31,7 +31,7 @@
         style="@style/setting_item_style">
         <TextView
             style="@style/setting_item_textview_style"
-            android:text="无很浏览"
+            android:text="无痕浏览"
             />
         <com.kyleduo.switchbutton.SwitchButton
             android:id="@+id/browser_btn"
