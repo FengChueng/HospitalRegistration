@@ -9,14 +9,22 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.zyl.hospital.registration.R;
 import com.zyl.hospital.registration.adapter.DoctorScheduleAdapter;
 import com.zyl.hospital.registration.base.MvpBaseActivity;
 import com.zyl.hospital.registration.bean.DoctorBean;
+import com.zyl.hospital.registration.bean.DoctorSchedule;
 import com.zyl.hospital.registration.constants.ApiConstant;
 import com.zyl.hospital.registration.constants.AppConstants;
 import com.zyl.hospital.registration.utils.ImageLoader;
+import com.zyl.hospital.registration.utils.SPUtils;
+import com.zyl.hospital.registration.utils.ToastUtils;
 import com.zyl.hospital.registration.widget.CircleImageView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 
@@ -35,6 +43,12 @@ public class DoctorScheduleActivity extends MvpBaseActivity<DoctorScheduleContra
     @BindView(R.id.doctor_name)
     TextView doctorName;
     private CollapsingToolbarLayoutState state;
+    private DoctorScheduleAdapter adapter;
+    private List<DoctorSchedule> doctorSchedules;
+    private String userid;
+    private int role;
+    private DoctorBean mDoctorBean;
+    private int level;
 
     private enum CollapsingToolbarLayoutState {
         EXPANDED,
@@ -54,6 +68,9 @@ public class DoctorScheduleActivity extends MvpBaseActivity<DoctorScheduleContra
         } else {
             finish();
         }
+
+        userid = (String) SPUtils.getSP(this, AppConstants.KEY_USER_ID,"");
+        role = (int) SPUtils.getSP(this, AppConstants.KEY_ROLE,0);
     }
 
     @Override
@@ -82,8 +99,34 @@ public class DoctorScheduleActivity extends MvpBaseActivity<DoctorScheduleContra
             }
         });
 
-        DoctorScheduleAdapter adapter = new DoctorScheduleAdapter(this,null,null,"");
+        doctorSchedules = new ArrayList<>();
+
+        adapter = new DoctorScheduleAdapter(this, doctorSchedules);
         recyclerView.setAdapter(adapter);
+
+        recyclerView.addOnItemTouchListener(new OnItemClickListener() {
+            @Override
+            public void SimpleOnItemClick(BaseQuickAdapter baseQuickAdapter, View view, int position) {
+                DoctorSchedule doctorSchedule = (DoctorSchedule) baseQuickAdapter.getItem(position);
+                float price = 50;
+                if(level == ApiConstant.DOCTOR_NORMAL){
+
+                }else{
+                    price *= 2;
+                }
+
+                mPresenter.makeAppointment(
+                        userid,
+                        doctorId,
+                        doctorSchedule.getDoctorScheduleId(),
+                        price,
+                        doctorSchedule.getScheduleDate(),
+                        System.currentTimeMillis(),
+                        "");
+
+            }
+        });
+
 
     }
 
@@ -99,21 +142,33 @@ public class DoctorScheduleActivity extends MvpBaseActivity<DoctorScheduleContra
 
     @Override
     public void getDoctorScheduleSucc(DoctorBean doctorBean) {
+        mDoctorBean = doctorBean;
+        level = doctorBean.getLevel();
         doctorName.setText(doctorBean.getRealName());
         info.setText(doctorBean.getInfo());
         ImageLoader.getIns(this).load(ApiConstant.API_SERVER_URL + doctorBean.getPortraint(),
                 doctorPortrait, R.mipmap.portraint_default, R.mipmap.portraint_default);
-
+        adapter.addData(doctorSchedules);
     }
 
     @Override
     public void getDoctorScheduleError(String msg) {
-
+        ToastUtils.showMetrailToast(this,msg);
     }
 
     @Override
     public void noData(String msg) {
+        ToastUtils.showMetrailToast(this,msg);
+    }
 
+    @Override
+    public void makeAppointmentSucc(String msg) {
+        ToastUtils.showMetrailToast(this,msg);
+    }
+
+    @Override
+    public void makeAppointmentError(String msg) {
+        ToastUtils.showMetrailToast(this,msg);
     }
 
     @Override

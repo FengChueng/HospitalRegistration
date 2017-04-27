@@ -1,5 +1,6 @@
 package com.zyl.hospital.registration.ui.mvp.appoint.schedule;
 
+import com.zyl.hospital.registration.bean.Appointment;
 import com.zyl.hospital.registration.bean.DoctorBean;
 import com.zyl.hospital.registration.rx.RxSubscribers;
 
@@ -32,5 +33,27 @@ public class DoctorSchedulePresenterImpl extends DoctorScheduleContract.DoctorSc
                 view.noData(msg);
             }
         }));
+    }
+
+    @Override
+    void makeAppointment(String patientId, String doctorId, String doctorScheduleId, float price, long clinicDate, long appointDate, String location) {
+        addSubscription(modle
+                .makeAppointment(patientId,doctorId,doctorScheduleId,price,clinicDate,appointDate,location)
+                .subscribe(new RxSubscribers<Appointment>(view.getActivity()) {
+                    @Override
+                    protected void _onNext(Appointment appointment) {
+
+                    }
+
+                    @Override
+                    protected void _onError(String message) {
+
+                    }
+
+                    @Override
+                    protected void _noData(String msg) {
+
+                    }
+                }));
     }
 }

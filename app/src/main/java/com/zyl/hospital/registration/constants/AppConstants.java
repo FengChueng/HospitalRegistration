@@ -39,4 +39,5 @@ public interface AppConstants {
     String KEY_DEPT_ID = "deptId";
     String KEY_DEPT_NAME = "deptName";
     String KEY_DOCTOR_ID = "doctorId";
+    String KEY_USER_ID = "user_id";
 }

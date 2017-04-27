@@ -6,13 +6,6 @@
     android:layout_width="match_parent"
     android:gravity="center_vertical"
     android:layout_height="140dp">
-   <com.zyl.hospital.registration.widget.CircleImageView
-       android:id="@+id/img"
-       android:padding="30dp"
-       android:layout_width="80dp"
-       android:layout_height="80dp"
-       android:layout_centerVertical="true"
-       />
 
    <LinearLayout
        android:id="@+id/content_ll"
@@ -21,6 +14,7 @@
        android:layout_toRightOf="@+id/img"
        android:orientation="vertical"
        android:padding="10dp"
+       android:layout_marginLeft="20dp"
        android:gravity="center_vertical"
        >
       <LinearLayout

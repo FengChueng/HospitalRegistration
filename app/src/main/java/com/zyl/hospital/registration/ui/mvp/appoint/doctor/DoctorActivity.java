@@ -16,6 +16,7 @@ import com.zyl.hospital.registration.bean.DoctorBean;
 import com.zyl.hospital.registration.constants.AppConstants;
 import com.zyl.hospital.registration.ui.mvp.appoint.schedule.DoctorScheduleActivity;
 import com.zyl.hospital.registration.utils.RouterUtils;
+import com.zyl.hospital.registration.utils.SPUtils;
 import com.zyl.hospital.registration.utils.ToastUtils;
 
 import java.util.ArrayList;
@@ -41,6 +42,7 @@ public class DoctorActivity extends MvpBaseActivity<DoctorContract.DoctorPresent
         if (params != null) {
             deptId = (String) params.get(AppConstants.KEY_DEPT_ID);
             deptName = (String) params.get(AppConstants.KEY_DEPT_NAME);
+            SPUtils.putSP(this,AppConstants.KEY_DEPT_NAME,"");
             mPresenter.getDoctor(deptId,page,size);
         }else{
             onBackPressed();

@@ -54,7 +54,7 @@ public interface ApiService {
      * @param size
      * @return
      */
-    @GET(ApiConstant.queryAllDoctorById)
+    @GET(ApiConstant.queryDoctorById)
     Observable<ResponseEntity<DoctorBean>> getDoctor(
             @Query("account") String account,
             @Query("page") int page,
@@ -113,7 +113,7 @@ public interface ApiService {
     //--------------预约数据请求
     @GET(ApiConstant.makeappointment)
     @FormUrlEncoded
-    Observable<ResponseEntity<?>> makeAppointment(@Query(value = "patientId") String patientId,
+    Observable<ResponseEntity<Appointment>> makeAppointment(@Query(value = "patientId") String patientId,
                                                   @Query(value = "doctorId") String doctorId,
                                                   @Query(value = "doctorScheduleId") String doctorScheduleId,
                                                   @Query(value = "price") float price,
