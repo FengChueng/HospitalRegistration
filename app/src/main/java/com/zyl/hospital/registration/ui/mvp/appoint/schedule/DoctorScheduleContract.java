@@ -14,8 +14,7 @@ import rx.Observable;
 public interface DoctorScheduleContract {
     abstract class DoctorSchedulePresenter extends BasePresenter<BaseView>{
         abstract void getDoctorSchedule(String doctorId,int page,int size);
-        abstract void makeAppointment(String patientId, String doctorId, String doctorScheduleId, float price, long clinicDate,
-                                      long appointDate, String location);
+        abstract void makeAppointment(String hospitalId,String deptId,String patientId, String doctorId, String doctorScheduleId);
     }
 
     interface DoctorScheduleView extends BaseView{
@@ -31,8 +30,7 @@ public interface DoctorScheduleContract {
 
     interface DoctorScheduleModel {
         Observable<ResponseEntity<DoctorBean>> getDoctorSchedule(String doctorId, int page, int size);
-        Observable<ResponseEntity<Appointment>> makeAppointment(String patientId, String doctorId, String doctorScheduleId, float price, long clinicDate,
-                                                                long appointDate, String location);
+        Observable<ResponseEntity<Appointment>> makeAppointment(String hospitalId,String deptId,String patientId, String doctorId, String doctorScheduleId);
     }
 
 }

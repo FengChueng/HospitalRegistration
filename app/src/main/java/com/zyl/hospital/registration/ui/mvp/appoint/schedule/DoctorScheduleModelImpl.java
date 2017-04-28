@@ -18,7 +18,8 @@ public class DoctorScheduleModelImpl implements DoctorScheduleContract.DoctorSch
     }
 
     @Override
-    public Observable<ResponseEntity<Appointment>> makeAppointment(String patientId, String doctorId, String doctorScheduleId, float price, long clinicDate, long appointDate, String location) {
-        return Api.getInstance().createService(ApiService.class).makeAppointment(patientId,doctorId,doctorScheduleId,price,clinicDate,appointDate,location);
+    public Observable<ResponseEntity<Appointment>> makeAppointment(String hospitalId, String deptId, String patientId, String doctorId, String doctorScheduleId) {
+
+        return Api.getInstance().createService(ApiService.class).makeAppointment(hospitalId,deptId,patientId,doctorId,doctorScheduleId);
     }
 }

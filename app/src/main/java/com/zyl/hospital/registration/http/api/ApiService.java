@@ -113,13 +113,11 @@ public interface ApiService {
     //--------------预约数据请求
     @GET(ApiConstant.makeappointment)
     @FormUrlEncoded
-    Observable<ResponseEntity<Appointment>> makeAppointment(@Query(value = "patientId") String patientId,
-                                                  @Query(value = "doctorId") String doctorId,
-                                                  @Query(value = "doctorScheduleId") String doctorScheduleId,
-                                                  @Query(value = "price") float price,
-                                                  @Query(value = "clinicDate") long clinicDate,
-                                                  @Query(value = "appointDate") long appointDate,
-                                                  @Query(value = "location") String location);
+    Observable<ResponseEntity<Appointment>> makeAppointment(@Query(value = "hospitalId") String hospitalId,
+                                                            @Query(value = "deptId") String deptId,
+                                                            @Query(value = "patientId") String patientId,
+                                                            @Query(value = "doctorId") String doctorId,
+                                                            @Query(value = "doctorScheduleId") String doctorScheduleId);
     @GET(ApiConstant.querydetail)
     @FormUrlEncoded
     Observable<ResponseEntity<Appointment>> queryDetailInfo(@Query(value = "doctorScheduleId") String doctorScheduleId);

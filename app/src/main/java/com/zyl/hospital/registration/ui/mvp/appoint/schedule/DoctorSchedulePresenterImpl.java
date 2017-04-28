@@ -36,9 +36,9 @@ public class DoctorSchedulePresenterImpl extends DoctorScheduleContract.DoctorSc
     }
 
     @Override
-    void makeAppointment(String patientId, String doctorId, String doctorScheduleId, float price, long clinicDate, long appointDate, String location) {
+    void makeAppointment(String hospitalId,String deptId,String patientId, String doctorId, String doctorScheduleId) {
         addSubscription(modle
-                .makeAppointment(patientId,doctorId,doctorScheduleId,price,clinicDate,appointDate,location)
+                .makeAppointment(hospitalId, deptId,patientId,doctorId,doctorScheduleId)
                 .subscribe(new RxSubscribers<Appointment>(view.getActivity()) {
                     @Override
                     protected void _onNext(Appointment appointment) {

@@ -46,9 +46,10 @@ public class DoctorScheduleActivity extends MvpBaseActivity<DoctorScheduleContra
     private DoctorScheduleAdapter adapter;
     private List<DoctorSchedule> doctorSchedules;
     private String userid;
-    private int role;
     private DoctorBean mDoctorBean;
     private int level;
+    private String hospitalId;
+    private String deptId;
 
     private enum CollapsingToolbarLayoutState {
         EXPANDED,
@@ -69,8 +70,9 @@ public class DoctorScheduleActivity extends MvpBaseActivity<DoctorScheduleContra
             finish();
         }
 
+        hospitalId = (String) SPUtils.getSP(this,AppConstants.KEY_HOSPITAL_ID,"");
+        deptId = (String) SPUtils.getSP(this,AppConstants.KEY_DEPT_ID,"");
         userid = (String) SPUtils.getSP(this, AppConstants.KEY_USER_ID,"");
-        role = (int) SPUtils.getSP(this, AppConstants.KEY_ROLE,0);
     }
 
     @Override
@@ -108,22 +110,12 @@ public class DoctorScheduleActivity extends MvpBaseActivity<DoctorScheduleContra
             @Override
             public void SimpleOnItemClick(BaseQuickAdapter baseQuickAdapter, View view, int position) {
                 DoctorSchedule doctorSchedule = (DoctorSchedule) baseQuickAdapter.getItem(position);
-                float price = 50;
-                if(level == ApiConstant.DOCTOR_NORMAL){
 
-                }else{
-                    price *= 2;
-                }
+                
 
-                mPresenter.makeAppointment(
-                        userid,
-                        doctorId,
-                        doctorSchedule.getDoctorScheduleId(),
-                        price,
-                        doctorSchedule.getScheduleDate(),
-                        System.currentTimeMillis(),
-                        "");
 
+
+                mPresenter.makeAppointment(hospitalId, deptId, userid, doctorId, doctorSchedule.getDoctorScheduleId());
             }
         });
 
