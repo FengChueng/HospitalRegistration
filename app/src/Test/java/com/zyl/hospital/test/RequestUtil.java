@@ -2,7 +2,7 @@ package com.zyl.hospital.test;
 
 import android.text.TextUtils;
 
-import com.zyl.hospital.registration.utils.LogUtils;
+import com.cjb.hospital.utils.LogUtils;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;

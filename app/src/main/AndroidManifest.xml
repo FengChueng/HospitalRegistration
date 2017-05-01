@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.zyl.hospital.registration">
+    package="com.cjb.hospital">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
-        android:name=".App"
+        android:name="com.cjb.hospital.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,13 +16,13 @@
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
         <activity
-            android:name=".ui.MainActivity"
+            android:name="com.cjb.hospital.ui.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:launchMode="singleTask"
             />
         <activity
-            android:name=".ui.SplashActivity"
+            android:name="com.cjb.hospital.ui.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -32,15 +32,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.mvp.user.login.LoginRegisterActivity"
+            android:name="com.cjb.hospital.ui.mvp.user.login.LoginRegisterActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.mvp.user.login.next.CompleteInfoActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".ui.mvp.user.userinfo.UserInfoActivity"
+            android:name="com.cjb.hospital.ui.mvp.user.login.next.CompleteInfoActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <!-- autoLayout参数 -->
@@ -55,18 +51,24 @@
             android:value="1920" />-->
 
         <activity
-            android:name=".ui.SettingActivity"
+            android:name="com.cjb.hospital.ui.SettingActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.mvp.appoint.department.DeptActivity"
+            android:name="com.cjb.hospital.ui.mvp.appoint.department.DeptActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.mvp.appoint.doctor.DoctorActivity"
+            android:name="com.cjb.hospital.ui.mvp.appoint.doctor.DoctorActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.mvp.appoint.schedule.DoctorScheduleActivity"></activity>
+        <activity android:name="com.cjb.hospital.ui.mvp.appoint.schedule.DoctorScheduleActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.cjb.hospital.ui.mvp.appoint.detail.AppointDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
     </application>
 
 </manifest>

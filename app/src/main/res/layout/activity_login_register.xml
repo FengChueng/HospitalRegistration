@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:loginView="@layout/login_login_view"
-        app:registerView="@layout/default_register_view"
+        app:registerView="@layout/login_register_view"
         >
     </shem.com.materiallogin.MaterialLoginView>
 </FrameLayout>

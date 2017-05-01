@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <tabs>
-    <tab
+<!--    <tab
         id="@+id/tab_news"
         icon="@mipmap/bar_news"
-        title="新闻资讯" />
+        title="新闻资讯" />-->
     <tab
         id="@+id/tab_appoint"
         icon="@mipmap/bar_appoint"

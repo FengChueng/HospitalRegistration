@@ -82,6 +82,7 @@ dependencies {
     compile 'com.github.shem8:material-login:2.1.0'
     compile 'com.github.johnpersano:supertoasts:2.0'
     compile 'com.afollestad.material-dialogs:core:0.9.0.1'
+    compile 'com.afollestad.material-dialogs:commons:0.9.1.0'
     compile 'com.miguelcatalan:materialsearchview:1.4.0'
     compile 'com.romainpiel.shimmer:library:1.4.0@aar'
     compile 'cn.finalteam.rxgalleryfinal:library:0.0.3'

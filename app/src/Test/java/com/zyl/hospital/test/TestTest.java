@@ -31,7 +31,7 @@ public class TestTest extends TestCase{
 //        RequestUtil.reqeustGet(urlStr);
 //    }
 
-    @Test
+    @Test @Ignore
     public void testModify() throws Exception {
         String account = "18380586504";
         String pwd = "123456";
@@ -51,6 +51,12 @@ public class TestTest extends TestCase{
         RequestUtil.reqeustParam(urlStr,requetBody);
     }
 
+    @Test
+    public void testGetDoctor() throws Exception {
+        String doctorId = "10000000003";
+        String urlStr = "http://120.24.183.87:8888/doctor/queryDoctorByDoctorAccount?account="+doctorId;
+        RequestUtil.reqeustGet(urlStr);
+    }
 
 
 }

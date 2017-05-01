@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:gravity="center_vertical"
     android:layout_height="140dp">
-   <com.zyl.hospital.registration.widget.CircleImageView
+   <com.cjb.hospital.widget.CircleImageView
        android:id="@+id/img"
        android:padding="30dp"
        android:layout_width="80dp"
@@ -92,7 +92,7 @@
     android:layout_alignEnd="@+id/content_ll"
     />
 
-   <com.zyl.hospital.registration.widget.CircleImageView
+   <com.cjb.hospital.widget.CircleImageView
        android:id="@+id/can_appointment"
        android:padding="30dp"
        android:layout_width="35dp"

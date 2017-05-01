@@ -4,11 +4,11 @@
     android:id="@+id/activity_splash"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.SplashActivity">
-    <com.zyl.hospital.registration.widget.launcher.LauncherView
+    tools:context="com.cjb.hospital.ui.SplashActivity">
+    <com.cjb.hospital.widget.launcher.LauncherView
         android:id="@+id/launcher_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    </com.zyl.hospital.registration.widget.launcher.LauncherView>
+    </com.cjb.hospital.widget.launcher.LauncherView>
 
 </RelativeLayout>
